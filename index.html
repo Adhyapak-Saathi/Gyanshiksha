@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>જ્ઞાનશિક્ષા - શૈક્ષણિક પોર્ટલ</title>
-    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -50,8 +49,7 @@
         }
 
         /* --- Hero Section --- */
-        /* Changed to Indian students/classroom photo */
-        .hero { position: relative; background-image: url('image_a2e8cd.jpg'); background-size: cover; background-position: center; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .hero { position: relative; background-image: url('jaredd-craig-HH4WBGNyltc-unsplash.jpg'); background-size: cover; background-position: center; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
         .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
         .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
         
@@ -94,9 +92,8 @@
         .test-card-content { padding: 25px; }
         .test-card-content h4 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
         
-        /* Updated Tags for Test Page */
-        .test-tags-row { display: flex; gap: 10px; margin: 15px 0 20px 0; align-items: center; flex-wrap: wrap;}
-        .tag-btn { padding: 6px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.3s; background: transparent; }
+        .test-tags-row { display: flex; gap: 8px; margin: 15px 0 20px 0; align-items: center; flex-wrap: wrap; justify-content: center;}
+        .tag-btn { padding: 8px 12px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.3s; background: transparent; width: 48%; }
         .tag-btn.free { border: 2px solid var(--correct-border); color: var(--correct-border); }
         .tag-btn.free:hover { background: var(--correct-border); color: white; }
         .tag-badge { padding: 6px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; background: transparent; border: 2px solid; cursor: default; }
@@ -171,13 +168,11 @@
 </head>
 <body>
 
-    <!-- Top Info Bar -->
     <div class="top-info">
         <span><i class="fa-solid fa-envelope"></i> janijani431@yahoo.com</span>
         <span>શૈક્ષણિક પોર્ટલ અને સ્પર્ધાત્મક પરીક્ષા પ્લેટફોર્મ</span>
     </div>
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo" onclick="showScreen('home')">
             <i class="fa-solid fa-graduation-cap"></i> જ્ઞાનશિક્ષા
@@ -192,24 +187,21 @@
         </ul>
     </nav>
 
-    <!-- ================= SCREENS ================= -->
-
-    <!-- 1. HOME SCREEN -->
     <div id="screen-home" class="screen-section active" style="padding: 0; max-width: 100%;">
         <div class="hero">
             <div class="hero-content">
+                <div class="big-counter">
+                    <!-- Removed specific visitor string -->
+                </div>
                 <h1>જ્ઞાનશિક્ષા શૈક્ષણિક પોર્ટલ</h1>
                 <p>સ્પર્ધાત્મક પરીક્ષાઓ (TET, TAT) અને શૈક્ષણિક હેતુઓ માટે ખાસ તૈયાર કરેલ ઓનલાઈન ક્વિઝ, શૈક્ષણિક ગેમ્સ અને અભ્યાસ સામગ્રીનું શ્રેષ્ઠ માધ્યમ.</p>
-                <!-- Hero buttons removed as requested -->
-            </div>
+                </div>
         </div>
 
-        <!-- Latest News -->
         <div style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
             <h2 class="section-title">નવીનતમ સમાચાર (Latest News)</h2>
             <div class="news-grid">
                 
-                <!-- News 1: TAT HS -->
                 <div class="news-card">
                     <img src="1000_F_315952395_4JIWEYrphH93W2vSFOEqF8pyAVdSGZXA.jpg" class="news-img" alt="TAT HS News">
                     <div class="news-content">
@@ -223,7 +215,6 @@
                     </div>
                 </div>
 
-                <!-- News 2: TAT S Notification -->
                 <div class="news-card">
                     <img src="1000_F_291245425_hykHpeTITwonlC1wHrGvjZO8ZmYMJQ3r.jpg" class="news-img" alt="TAT S Notification">
                     <div class="news-content">
@@ -237,7 +228,6 @@
                     </div>
                 </div>
 
-                <!-- News 3: General Updates -->
                 <div class="news-card">
                     <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop" class="news-img" alt="Education News">
                     <div class="news-content">
@@ -255,15 +245,13 @@
         </div>
     </div>
 
-    <!-- 2. TEST SCREEN -->
     <div id="screen-test" class="screen-section">
         <h2 class="section-title">ઓનલાઈન ટેસ્ટ અને ક્વિઝ</h2>
 
-        <!-- Exam Specific Mock Tests -->
         <h3 style="margin-bottom: 20px; color: var(--secondary-color); font-size: 24px;">સ્પર્ધાત્મક પરીક્ષા (Mock Tests)</h3>
         <div class="test-grid">
             
-            <!-- TAT-S Card -->
+            <!-- TAT S Card updated with 4 chapters -->
             <div class="test-card">
                 <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop" alt="TAT-S Test" class="test-img">
                 <div class="test-card-content">
@@ -271,8 +259,13 @@
                     <p style="color: var(--text-muted); font-size: 15px;">ધોરણ ૯ અને ૧૦ ના શિક્ષકો માટેની પરીક્ષાની સંપૂર્ણ તૈયારી અને ટેસ્ટ સિરીઝ.</p>
                     
                     <div class="test-tags-row">
-                        <!-- લીલા કલરનું ક્લિકેબલ બટન -->
                         <button class="tag-btn free" onclick="startPsychQuiz(1)">ફ્રી ટેસ્ટ (પ્રકરણ ૧)</button>
+                        <button class="tag-btn free" onclick="startPsychQuiz(2)">ફ્રી ટેસ્ટ (પ્રકરણ ૨)</button>
+                        <button class="tag-btn free" onclick="startPsychQuiz(3)">ફ્રી ટેસ્ટ (પ્રકરણ ૩)</button>
+                        <button class="tag-btn free" onclick="startPsychQuiz(4)">ફ્રી ટેસ્ટ (પ્રકરણ ૪)</button>
+                    </div>
+                    
+                    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
                         <span class="tag-badge mock">મોક ટેસ્ટ</span>
                         <span class="tag-badge paid">પેઇડ ટેસ્ટ</span>
                     </div>
@@ -283,16 +276,21 @@
                 </div>
             </div>
 
-            <!-- TAT-HS Card -->
+            <!-- TAT HS Card updated with 4 chapters -->
             <div class="test-card">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="TAT-HS Test" class="test-img">
+                <img src="https://images.unsplash.com/photo-1510531704581-5b2870972060?q=80&w=800&auto=format&fit=crop" alt="TAT-HS Test" class="test-img">
                 <div class="test-card-content">
                     <h4>TAT-HS (ઉચ્ચતર માધ્યમિક શિક્ષક)</h4>
                     <p style="color: var(--text-muted); font-size: 15px;">ધોરણ ૧૧ અને ૧૨ ના શિક્ષકો માટેની પરીક્ષાની સંપૂર્ણ તૈયારી અને ટેસ્ટ સિરીઝ.</p>
                     
                     <div class="test-tags-row">
-                        <!-- લીલા કલરનું ક્લિકેબલ બટન -->
+                        <button class="tag-btn free" onclick="startPsychQuiz(1)">ફ્રી ટેસ્ટ (પ્રકરણ ૧)</button>
                         <button class="tag-btn free" onclick="startPsychQuiz(2)">ફ્રી ટેસ્ટ (પ્રકરણ ૨)</button>
+                        <button class="tag-btn free" onclick="startPsychQuiz(3)">ફ્રી ટેસ્ટ (પ્રકરણ ૩)</button>
+                        <button class="tag-btn free" onclick="startPsychQuiz(4)">ફ્રી ટેસ્ટ (પ્રકરણ ૪)</button>
+                    </div>
+
+                    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
                         <span class="tag-badge mock">મોક ટેસ્ટ</span>
                         <span class="tag-badge paid">પેઇડ ટેસ્ટ</span>
                     </div>
@@ -306,7 +304,6 @@
         </div>
     </div>
 
-    <!-- 3. BLOG SCREEN (Under Construction) -->
     <div id="screen-blog" class="screen-section">
         <div class="construction-box">
             <i class="fa-solid fa-blog"></i>
@@ -316,7 +313,6 @@
         </div>
     </div>
 
-    <!-- 4. ABOUT SCREEN -->
     <div id="screen-about" class="screen-section">
         <h2 class="section-title">અમારા વિશે (About Us)</h2>
         <div class="about-content">
@@ -332,7 +328,6 @@
         </div>
     </div>
 
-    <!-- 5. CONTACT SCREEN -->
     <div id="screen-contact" class="screen-section">
         <h2 class="section-title">સંપર્ક કરો (Contact)</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 40px; background: var(--bg-white); padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
@@ -348,7 +343,6 @@
         </div>
     </div>
 
-    <!-- 6. EDUCATIONAL GAMES SCREEN -->
     <div id="screen-games" class="screen-section">
         <h2 class="section-title">શૈક્ષણિક ગેમ્સ (ગણિત)</h2>
         <p style="text-align: center; margin-top: -20px; margin-bottom: 40px; color: var(--text-muted); font-size: 18px;">વય જૂથ: ૬ થી ૧૬ વર્ષના બાળકો માટે</p>
@@ -372,7 +366,6 @@
             </div>
         </div>
 
-        <!-- Math Quiz UI -->
         <div id="math-quiz-area">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px;">
                 <button class="btn btn-outline" style="border-color: var(--border-color); color: var(--text-dark); padding: 5px 15px;" onclick="closeMathGame()">
@@ -394,7 +387,6 @@
             </div>
         </div>
         
-        <!-- Math Result -->
         <div id="math-result-area" style="display: none; background: var(--bg-white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto;">
             <i class="fa-solid fa-trophy" style="font-size: 60px; color: var(--primary-color); margin-bottom: 20px;"></i>
             <h2 style="font-size: 32px; margin-bottom: 10px;">રમત પૂર્ણ!</h2>
@@ -403,7 +395,6 @@
         </div>
     </div>
 
-    <!-- 7. PSYCHOLOGY Quiz SCREEN (Hidden inside code, activated via Test buttons) -->
     <div id="screen-psych-quiz" class="screen-section">
         <div id="psych-quiz-area">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px;">
@@ -436,10 +427,8 @@
     </div>
 
 
-    <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="footer-grid">
-            <!-- Col 1: Details -->
             <div class="footer-col">
                 <div class="logo" style="color: #fff; margin-bottom: 20px;">
                     <i class="fa-solid fa-graduation-cap" style="color: var(--primary-color);"></i> જ્ઞાનશિક્ષા
@@ -454,7 +443,6 @@
                 </div>
             </div>
 
-            <!-- Col 2: Useful Links -->
             <div class="footer-col">
                 <h3>ઉપયોગી લિંક્સ (User Links)</h3>
                 <ul class="footer-links">
@@ -467,7 +455,6 @@
                 </ul>
             </div>
 
-            <!-- Col 3: Suggestion / Contact Form -->
             <div class="footer-col quick-contact">
                 <h3>સજેશન બોક્સ (Quick Contact)</h3>
                 <form id="suggestionForm" action="https://formspree.io/f/xnjgoeod" method="POST">
@@ -494,7 +481,6 @@
         </div>
     </footer>
 
-<!-- ================= JAVASCRIPT LOGIC ================= -->
 <script>
     // --- 0. Visitor Counter (Admin Exclude Logic) ---
     const urlParams = new URLSearchParams(window.location.search);
@@ -507,24 +493,18 @@
 
     const counterContainer = document.getElementById('visitor-counter-container');
     if (localStorage.getItem('isAdmin') !== 'true') {
-        // જો યુઝર એડમિન નથી તો જ કાઉન્ટરની ઇમેજ લોડ થશે
         counterContainer.innerHTML = '<img src="https://api.visitorbadge.io/api/visitors?path=psychology128.github.io&countColor=%23f39c12" alt="Visitor Counter" style="height: 20px; border-radius: 4px;">';
     } else {
-        // જો યુઝર એડમિન છે, તો ફક્ત મેસેજ દેખાશે
         counterContainer.innerHTML = '<span style="color:#f39c12; font-weight:bold;">(તમે એડમિન છો)</span>';
     }
 
     // --- 1. Navigation Logic (SPA) ---
     function showScreen(screenId) {
-        // Hide all screens
         document.querySelectorAll('.screen-section').forEach(sec => sec.classList.remove('active'));
-        // Update nav links
         document.querySelectorAll('.nav-links li').forEach(li => li.classList.remove('active'));
         
-        // Show target screen
         document.getElementById('screen-' + screenId).classList.add('active');
         
-        // Activate matching nav link (if exists)
         const links = document.querySelectorAll('.nav-links li');
         if(screenId === 'home') links[0].classList.add('active');
         else if(screenId === 'test') links[1].classList.add('active');
@@ -536,18 +516,55 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // --- 2. Psychology Quiz Logic (Existing Data) ---
+    // --- 2. Psychology Quiz Logic (Updated 40 Questions) ---
     const psychQuestions = [
-        { chapter: 1, q: "૧. મનોવિજ્ઞાન (સાઈકોલોજી) શબ્દ કઈ ભાષામાંથી ઊતરી આવ્યો છે?", opts: ["(a) સ્પેનિશ", "(b) લેટિન", "(c) ગ્રીક", "(d) ફ્રેન્ચ"], ans: 2 },
-        { chapter: 1, q: "૨. ભારતમાં મનોવિજ્ઞાન ક્ષેત્રમાં સૌપ્રથમ પ્રયોગશાળા ક્યારે સ્થાપવામાં આવી?", opts: ["(a) 1932", "(b) 1945", "(c) 1906", "(d) 1905"], ans: 3 },
-        { chapter: 1, q: "૩. મનોવિજ્ઞાન કયા વિષયમાંથી ઉદ્ભવેલ છે?", opts: ["(a) તર્કશાસ્ત્ર", "(b) આંકડાશાસ્ત્ર", "(c) તત્ત્વજ્ઞાન", "(d) પ્રાણીશાસ્ત્ર"], ans: 2 },
-        { chapter: 1, q: "૪. મનોવિજ્ઞાન માનવીના વર્તનનો અભ્યાસ શાના સંદર્ભમાં કરે છે?", opts: ["(a) રસ", "(b) રુચિ", "(c) વાતાવરણ", "(d) મનોવલણ"], ans: 2 },
-        { chapter: 2, q: "૫. મનોવિજ્ઞાનને વિજ્ઞાન તરીકેનો દરજ્જો ક્યારથી પ્રાપ્ત થયો?", opts: ["(a) 1878", "(b) 1879", "(c) 1972", "(d) 1869"], ans: 1 },
-        { chapter: 2, q: "૬. મનોવિજ્ઞાનનું વિષયવસ્તુ શું છે?", opts: ["(a) માનવી", "(b) પ્રાણી", "(c) વાતાવરણ", "(d) વર્તન"], ans: 3 },
-        { chapter: 2, q: "૭. અચેતન મનનો સિદ્ધાંત કોણે આપ્યો છે?", opts: ["(a) વર્ધીમર", "(b) વુન્ટ", "(c) ફ્રોઈડ", "(d) જ્હોન ડ્યુઈ"], ans: 2 },
-        { chapter: 2, q: "૮. મનોવિજ્ઞાનને પ્રયોગાત્મક સ્વરૂપ આપવાનો યશ કોને ફાળે જાય છે?", opts: ["(a) યુંગ", "(b) કોહલર", "(c) ફ્રોઈડ", "(d) વુન્ટ"], ans: 3 },
-        { chapter: 2, q: "૯. રચનાવાદીઓએ કઈ પદ્ધતિનો ઉપયોગ કર્યો?", opts: ["(a) બાહ્ય નિરીક્ષણ", "(b) આંતર નિરીક્ષણ", "(c) મુક્ત સાહચર્ય", "(d) સ્વપ્ન વિશ્લેષણ"], ans: 1 },
-        { chapter: 2, q: "૧૦. વર્તનવાદના પ્રણેતા કોણ હતા?", opts: ["(a) વોટ્સન", "(b) કોહલર", "(c) વર્ધીમર", "(d) સી.ટી.મોર્ગન"], ans: 0 }
+        // પ્રકરણ ૧ (1-10)
+        { chapter: 1, q: "૧. મનોવિજ્ઞાનના વિષયવસ્તુ-વર્તનના અભ્યાસ પદ્ધતિમાં કેટલી પદ્ધતિઓનો સમાવેશ થાય છે?", opts: ["(a) ચાર", "(b) પાંચ", "(c) છ", "(d) સાત"], ans: 2 },
+        { chapter: 1, q: "૨. ..........નું વિષયવસ્તુ જીવંત માનવીનું વર્તન છે.", opts: ["(a) જીવવિજ્ઞાન", "(b) મનોવિજ્ઞાન", "(c) ભૌતિક વિજ્ઞાન", "(d) રસાયણવિજ્ઞાન"], ans: 1 },
+        { chapter: 1, q: "૩. મનોમાપનલક્ષી મનોવિજ્ઞાનનો આરંભ કોની બુદ્ધિકસોટી સાથે થયો એમ ગણી શકાય?", opts: ["(a) ડૉ. ભાટિયા", "(b) વોટ્સન", "(c) બીને સાયમન", "(d) ડૉ. દેસાઈ"], ans: 2 },
+        { chapter: 1, q: "૪. અન્ય ક્ષેત્રોને મનોમાપન માટેનાં સાધનો પૂરાં પાડવાનું કાર્ય કયા ક્ષેત્ર દ્વારા થાય છે?", opts: ["(a) સંગઠનલક્ષી મનોવિજ્ઞાન", "(b) શાળાકીય મનોવિજ્ઞાન", "(c) ચિકિત્સા મનોવિજ્ઞાન", "(d) પ્રાયોગિક મનોમાપનલક્ષી"], ans: 3 },
+        { chapter: 1, q: "૫. તન-દુરસ્ત અને મન-દુરસ્ત જીવન કેવી રીતે જીવવું તે અંગેનું માર્ગદર્શન કઈ શાખા આપે છે?", opts: ["(a) સલાહ મનોવિજ્ઞાન", "(b) સ્વાસ્થ્ય મનોવિજ્ઞાન", "(c) પર્યાવરણલક્ષી", "(d) રમત-ગમતનું મનોવિજ્ઞાન"], ans: 1 },
+        { chapter: 1, q: "૬. મનોવિજ્ઞાનની કઈ શાખા માનસિક રોગો અને વિકૃતિઓ પર થતી ઔષધોની અસરનો અભ્યાસ કરે છે?", opts: ["(a) ચિકિત્સા", "(b) તુલનાત્મક-શરીરલક્ષી", "(c) સલાહ", "(d) સ્વાસ્થ્યલક્ષી"], ans: 1 },
+        { chapter: 1, q: "૭. વિદ્યાર્થીઓની વ્યક્તિગત સમસ્યાનું નિદાન અને ઉપચાર કરવાનું કાર્ય કોણ કરે છે?", opts: ["(a) શાળા મનોવૈજ્ઞાનિકો", "(b) સલાહ મનોવૈજ્ઞાનિકો", "(c) ચિકિત્સા મનોવૈજ્ઞાનિકો", "(d) શૈક્ષણિક મનોવૈજ્ઞાનિકો"], ans: 0 },
+        { chapter: 1, q: "૮. મનોવિજ્ઞાનની કઈ શાખા સામાજિક પરિસ્થિતિમાં વ્યક્તિના વર્તનને સમજવાનો પ્રયાસ કરે છે?", opts: ["(a) વિકાસાત્મક", "(b) સમાજલક્ષી", "(c) મનોમાપનલક્ષી", "(d) પર્યાવરણલક્ષી"], ans: 1 },
+        { chapter: 1, q: "૯. મોટા ભાગનાં જાહેર સાહસોમાં કર્મચારી પસંદગી માટે મનોવિજ્ઞાનની કઈ શાખાની મદદ લેવાય છે?", opts: ["(a) મનોમાપન લક્ષી", "(b) સમાજલક્ષી", "(c) ઔદ્યોગિક", "(d) પર્યાવરણલક્ષી"], ans: 2 },
+        { chapter: 1, q: "૧૦. પોતાની અંદર અંતર્મુખ થઈને પોતાનામાં ચાલતા મનોવ્યાપારોનું નિરીક્ષણ કઈ પદ્ધતિમાં થાય છે?", opts: ["(a) વ્યવસ્થિત નિરીક્ષણ", "(b) ક્ષેત્ર નિરીક્ષણ", "(c) સહભાગી નિરીક્ષણ", "(d) આંતર નિરીક્ષણ"], ans: 3 },
+        
+        // પ્રકરણ ૨ (11-20)
+        { chapter: 2, q: "૧૧. કુદરતી નિરીક્ષણ પદ્ધતિની મર્યાદા દૂર કરવા માટે કેટલાંક ટેકનિકલ સાધનોનો ઉપયોગ કઈ પદ્ધતિમાં થાય છે?", opts: ["(a) ક્ષેત્ર નિરીક્ષણ", "(b) આંતરનિરીક્ષણ", "(c) વ્યવસ્થિત નિરીક્ષણ", "(d) સહભાગી નિરીક્ષણ"], ans: 2 },
+        { chapter: 2, q: "૧૨. નિરીક્ષણની કઈ પદ્ધતિમાં અચેતન મનનો અભ્યાસ કરી શકાતો નથી?", opts: ["(a) કુદરતી નિરીક્ષણ", "(b) ક્ષેત્ર નિરીક્ષણ", "(c) સહભાગી નિરીક્ષણ", "(d) આંતર નિરીક્ષણ"], ans: 3 },
+        { chapter: 2, q: "૧૩. ચોક્કસ જૂથ વિશેની અપૂરતી માહિતી હોય, તો નિરીક્ષક તે જૂથના સભ્ય બનીને કઈ પદ્ધતિ દ્વારા માહિતી મેળવે છે?", opts: ["(a) સહભાગી નિરીક્ષણ", "(b) વ્યવસ્થિત નિરીક્ષણ", "(c) આંતર નિરીક્ષણ", "(d) ક્ષેત્ર નિરીક્ષણ"], ans: 0 },
+        { chapter: 2, q: "૧૪. કઈ અભ્યાસ પદ્ધતિમાં વ્યક્તિના ભૂતકાળ અને વર્તમાનના અભ્યાસ પરથી ભવિષ્ય વિશે માર્ગદર્શન અપાય છે?", opts: ["(a) સમકાલીન", "(b) દીર્ઘકાલીન", "(c) વ્યક્તિ ઇતિહાસ", "(d) નિરીક્ષણ"], ans: 2 },
+        { chapter: 2, q: "૧૫. સમયના બચાવ માટે સમાન ગુણલક્ષણ ધરાવતાં પ્રયોગપાત્ર પર એકસાથે અભ્યાસ કઈ પદ્ધતિમાં થાય છે?", opts: ["(a) વ્યવસ્થિત", "(b) તુલનાત્મક", "(c) દીર્ઘકાલીન", "(d) સમકાલીન"], ans: 3 },
+        { chapter: 2, q: "૧૬. “નિરીક્ષણ એટલે આંખો દ્વારા હેતુપૂર્વક સ્વાભાવિક ઘટનાઓ કે બનાવોને ક્રમબદ્ધ કરવામાં આવેલો અભ્યાસ” - આ વ્યાખ્યા કોની છે?", opts: ["(a) ટિશનર", "(b) બી.એફ. એન્ડરસન", "(c) યંગ", "(d) ક્રોનબેક"], ans: 2 },
+        { chapter: 2, q: "૧૭. કયા પ્રકારનો અભ્યાસ એકના એક પ્રયોગપાત્ર ઉપર ખૂબ જ લાંબા સમય સુધી ચાલે છે?", opts: ["(a) સહભાગી", "(b) દીર્ઘકાલીન", "(c) સમકાલીન", "(d) તુલનાત્મક"], ans: 1 },
+        { chapter: 2, q: "૧૮. રૂબરૂ મુલાકાત કઈ અભ્યાસ પદ્ધતિમાં લેવામાં આવે છે?", opts: ["(a) પ્રશ્નાવલિ", "(b) સહભાગી", "(c) મુલાકાત", "(d) આપેલ તમામ"], ans: 2 },
+        { chapter: 2, q: "૧૯. કસોટીના સંચાલનની એકવિધતા શું કહેવાય?", opts: ["(a) વસ્તુલક્ષિતા", "(b) માનાંકો", "(c) વિશ્વસનીયતા", "(d) પ્રમાણિતતા"], ans: 3 },
+        { chapter: 2, q: "૨૦. ‘મનોવૈજ્ઞાનિક કસોટીનાં પરિણામોનું સાતત્ય’ એટલે શું?", opts: ["(a) માનાંકો", "(b) વસ્તુલક્ષિતા", "(c) વિશ્વસનીયતા", "(d) યથાર્થતા"], ans: 2 },
+
+        // પ્રકરણ ૩ (21-30)
+        { chapter: 3, q: "૨૧. સંશોધનના કોઈ પણ પ્રકારના પૂર્વગ્રહ, મનોવલણરહિત મૂલ્યાંકનને શું કહે છે?", opts: ["(a) યથાર્થતા", "(b) વસ્તુલક્ષિતા", "(c) માનાંકો", "(d) વિશ્વસનીયતા"], ans: 1 },
+        { chapter: 3, q: "૨૨. કઈ પદ્ધતિ ‘અનિયંત્રિત નિરીક્ષણ પદ્ધતિ’ તરીકે ઓળખાય છે?", opts: ["(a) સહભાગી નિરીક્ષણ", "(b) તુલનાત્મક નિરીક્ષણ", "(c) વ્યવસ્થિત નિરીક્ષણ", "(d) કુદરતી નિરીક્ષણ"], ans: 3 },
+        { chapter: 3, q: "૨૩. રોગપ્રતિકારક રસીઓની લાંબા ગાળાની અસરો ચકાસવા માટે કઈ પદ્ધતિનો ઉપયોગ થાય છે?", opts: ["(a) સમકાલીન", "(b) દીર્ઘકાલીન", "(c) તુલનાત્મક", "(d) ક્ષેત્રનિરીક્ષણ"], ans: 1 },
+        { chapter: 3, q: "૨૪. કોઈ પ્રદેશમાં થયેલા પૂર પ્રકોપનું નિરીક્ષણ કરવા કઈ પદ્ધતિનો ઉપયોગ થાય છે?", opts: ["(a) સહભાગી નિરીક્ષણ", "(b) તુલનાત્મક નિરીક્ષણ", "(c) કુદરતી નિરીક્ષણ", "(d) ક્ષેત્ર નિરીક્ષણ"], ans: 3 },
+        { chapter: 3, q: "૨૫. નીચેનામાંથી અયોગ્ય વિધાન પસંદ કરો: (I) સમકાલીન અભ્યાસને અનુપ્રસ્થ છેદીય અભ્યાસ કહે છે. (II) દીર્ઘકાલીન અભ્યાસને અનુપ્રસ્થ છેદીય કહે છે.", opts: ["(a) I અને III", "(b) II અને III", "(c) માત્ર II", "(d) I, II અને III"], ans: 2 },
+        { chapter: 3, q: "૨૬. કોના મતે, “મનોવૈજ્ઞાનિક કસોટી વ્યક્તિના વર્તનના નમૂનાનું વસ્તુલક્ષી માપન કરે છે”?", opts: ["(a) ટિશનર", "(b) બીને", "(c) અનાસ્ટસી", "(d) યંગ"], ans: 2 },
+        { chapter: 3, q: "૨૭. મનોવૈજ્ઞાનિક કસોટીનું સમધારણ કે સરેરાશ કાર્ય એટલે શું?", opts: ["(a) માનાંકો", "(b) વસ્તુલક્ષિતા", "(c) વિશ્વસનીયતા", "(d) યથાર્થતા"], ans: 0 },
+        { chapter: 3, q: "૨૮. કોના મતે, “મનોવૈજ્ઞાનિક કસોટી એટલે બે કે તેથી વધુ વ્યક્તિઓના વર્તનનું તુલનાત્મક માપન કરવાની રીત”?", opts: ["(a) અનાસ્ટસી", "(b) ક્રોનબેક", "(c) બીને", "(d) ટિશનર"], ans: 1 },
+        { chapter: 3, q: "૨૯. નીચેનાં પૈકી કયાં લક્ષણોનો સમાવેશ પ્રયોગ લક્ષણોમાં થતો નથી?", opts: ["(a) વસ્તુલક્ષિતા", "(b) નિયંત્રણ", "(c) વિશ્વસનીયતા", "(d) પરિવર્તન"], ans: 2 },
+        { chapter: 3, q: "૩૦. એક ઢોંગી બાબાની પોલ ખોલવી હોય તો તેના પરમ શિષ્ય બની કઈ પદ્ધતિથી માહિતી મેળવી શકાય?", opts: ["(a) કુદરતી", "(b) ક્ષેત્ર", "(c) સહભાગી", "(d) તુલનાત્મક"], ans: 2 },
+
+        // પ્રકરણ ૪ (31-40)
+        { chapter: 4, q: "૩૧. મનોવિજ્ઞાનના હાર્દ તરીકે કઈ પદ્ધતિ ઓળખાય છે?", opts: ["(a) વ્યક્તિ ઇતિહાસ", "(b) પ્રયોગ", "(c) ક્ષેત્ર", "(d) કુદરતી"], ans: 1 },
+        { chapter: 4, q: "૩૨. દીર્ઘકાલીન પદ્ધતિમાં એક સમૂહ પર સતત કેટલો સમય નિરીક્ષણ થાય છે?", opts: ["(a) 5 થી 10 વર્ષ", "(b) 10 થી 20 વર્ષ", "(c) 5 થી 25 વર્ષ કે તેથી વધુ", "(d) કોઈ મર્યાદા નથી"], ans: 1 },
+        { chapter: 4, q: "૩૩. વન-વે સ્ક્રીન, ટેપરેકોર્ડર, કેમેરાનો ઉપયોગ કઈ નિરીક્ષણ પદ્ધતિમાં થાય છે?", opts: ["(a) ક્ષેત્ર નિરીક્ષણ", "(b) તુલનાત્મક", "(c) વ્યવસ્થિત", "(d) મુલાકાત"], ans: 2 },
+        { chapter: 4, q: "૩૪. નીચેનામાંથી કયું લક્ષણ મનોવૈજ્ઞાનિક કસોટીનાં લક્ષણો પૈકીનું નથી?", opts: ["(a) વિશ્વસનીયતા", "(b) યથાર્થતા", "(c) નિયંત્રણ", "(d) વસ્તુલક્ષિતા"], ans: 2 },
+        { chapter: 4, q: "૩૫. પ્રમાણિત કસોટી જે આશયથી તૈયાર કરાઈ હોય તેનું જ માપન કરે તો તે કયું લક્ષણ ગણાય?", opts: ["(a) અનાત્મલક્ષીપણું", "(b) વિશ્વસનીયતા", "(c) યથાર્થતા", "(d) ભેદકારકતા"], ans: 2 },
+        { chapter: 4, q: "૩૬. એક વૈયક્તિક વિષયના તલસ્પર્શી નિરીક્ષણને શું કહેવાય છે?", opts: ["(a) વિશ્લેષણાત્મક અભ્યાસ", "(b) વર્તન અભ્યાસ", "(c) અંગત વિવેચન", "(d) વ્યક્તિ અભ્યાસ"], ans: 3 },
+        { chapter: 4, q: "૩૭. મનોવૈજ્ઞાનિક કસોટીમાં પરિણામોનું સાતત્ય એટલે શું?", opts: ["(a) યથાર્થતા", "(b) વિશ્વસનીયતા", "(c) માનાંકો", "(d) વસ્તુલક્ષિતા"], ans: 1 },
+        { chapter: 4, q: "૩૮. કઈ પદ્ધતિમાં વ્યક્તિના ભૂતકાળ અને વર્તમાન પરથી ભવિષ્યના વર્તનની આગાહી કરાય છે?", opts: ["(a) દીર્ઘકાલીન", "(b) વ્યક્તિ ઇતિહાસ", "(c) સમકાલીન", "(d) નિરીક્ષણ"], ans: 1 },
+        { chapter: 4, q: "૩૯. કઈ પદ્ધતિમાં વ્યક્તિ 'સાચું' કહે છે કે 'સારું' તે જાણી શકાતું નથી?", opts: ["(a) આંતરનિરીક્ષણ", "(b) સહભાગી", "(c) કુદરતી", "(d) ક્ષેત્ર નિરીક્ષણ"], ans: 0 },
+        { chapter: 4, q: "૪૦. નીચેનામાંથી કયો વિભાગ દીર્ઘકાલીન અભ્યાસ સાથે જોડાયેલ નથી?", opts: ["(a) રૂબરૂ મોડામોઢની વાતચીત", "(b) અનુપ્રસ્થ છેદીય અભ્યાસ", "(c) અનિયંત્રિત નિરીક્ષણ", "(d) લાંબા સમયનો અભ્યાસ"], ans: 1 }
     ];
 
     let pCurrentList = [];
@@ -660,7 +677,7 @@
         for(let i=0; i<10; i++) {
             let qStr = "", ans = 0, reason = "", opts = [];
             if(type === 'add') {
-                let a = Math.floor(Math.random() * 40) + 10; // 10-49
+                let a = Math.floor(Math.random() * 40) + 10;
                 let b = Math.floor(Math.random() * 40) + 10;
                 ans = a + b;
                 qStr = `${toGuj(a)} + ${toGuj(b)} = ?`;
@@ -668,7 +685,7 @@
                 reason = `કારણ: (${toGuj(aRound)} + ${toGuj(bRound)} = ${toGuj(aRound+bRound)}) અને (${toGuj(aRem)} + ${toGuj(bRem)} = ${toGuj(aRem+bRem)}), તેથી કુલ ${toGuj(ans)} થાય.`;
             } 
             else if(type === 'sub') {
-                let a = Math.floor(Math.random() * 50) + 50; // 50-99
+                let a = Math.floor(Math.random() * 50) + 50;
                 let b = Math.floor(Math.random() * 30) + 10;
                 ans = a - b;
                 qStr = `${toGuj(a)} - ${toGuj(b)} = ?`;
@@ -676,27 +693,26 @@
                 reason = `કારણ: પહેલા ${toGuj(a)} માંથી ${toGuj(bRound)} બાદ કરો = ${toGuj(a-bRound)}. પછી તેમાંથી ${toGuj(bRem)} બાદ કરતા ${toGuj(ans)} વધે.`;
             }
             else if(type === 'mul') {
-                let a = Math.floor(Math.random() * 10) + 2; // 2-11
-                let b = Math.floor(Math.random() * 9) + 2; // 2-10
+                let a = Math.floor(Math.random() * 10) + 2;
+                let b = Math.floor(Math.random() * 9) + 2;
                 ans = a * b;
                 qStr = `${toGuj(a)} × ${toGuj(b)} = ?`;
                 reason = `કારણ: ${toGuj(a)} નો ઘડિયો ${toGuj(b)} વાર બોલતા: ${toGuj(a)} × ${toGuj(b)} = ${toGuj(ans)} થાય.`;
             }
             else if(type === 'div') {
-                let b = Math.floor(Math.random() * 9) + 2; // divisor 2-10
-                ans = Math.floor(Math.random() * 10) + 2; // answer 2-11
+                let b = Math.floor(Math.random() * 9) + 2;
+                ans = Math.floor(Math.random() * 10) + 2;
                 let a = b * ans;
                 qStr = `${toGuj(a)} ÷ ${toGuj(b)} = ?`;
                 reason = `કારણ: ${toGuj(b)} ના ઘડિયામાં ${toGuj(ans)} વખત આવતો અંક ${toGuj(a)} છે (${toGuj(b)} × ${toGuj(ans)} = ${toGuj(a)}).`;
             }
 
-            // Generate 3 fake options
             opts.push(ans);
             while(opts.length < 4) {
                 let fake = ans + (Math.floor(Math.random() * 10) - 5);
                 if(fake !== ans && fake > 0 && !opts.includes(fake)) opts.push(fake);
             }
-            opts.sort(() => Math.random() - 0.5); // shuffle
+            opts.sort(() => Math.random() - 0.5);
             
             qs.push({ q: qStr, ans: ans, opts: opts, reason: reason });
         }
@@ -752,7 +768,6 @@
             document.getElementById('m-score').innerText = toGuj(mScore);
         } else {
             e.target.classList.add('wrong');
-            // Find correct and highlight
             Array.from(document.getElementById('m-options').children).forEach(btn => {
                 if(btn.innerText === toGuj(correct)) btn.classList.add('correct');
             });
