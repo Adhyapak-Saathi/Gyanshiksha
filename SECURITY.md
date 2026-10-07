@@ -1,9 +1,18 @@
-# SECURITY
+# Security Policy
 
-- Never commit passwords, Google Apps Script secrets, API keys, SMTP credentials, database credentials, payment keys or private tokens.
-- Keep Google Apps Script keys/URLs reviewed before public exposure.
-- Use GitHub 2FA and branch protection.
-- Enable Dependabot / secret scanning / code scanning where available.
+Gyan Shiksha uses a static-first GitHub Pages architecture.
+
+## Reporting a vulnerability
+Please do not publish sensitive security details in a public issue or comment.
+
+Report security concerns through: `https://adhyapak-saathi.github.io/Gyanshiksha/contact.html`
+
+Website policy: `https://adhyapak-saathi.github.io/Gyanshiksha/security.html`
+
+## Rules
+- Never commit passwords, API keys, SMTP credentials, database credentials, payment keys or private tokens.
+- The public Google Apps Script Web App URL may be embedded; secret tokens or restricted credentials must not be exposed in frontend code.
+- Keep GitHub 2FA enabled and protect the production branch where practical.
 - Keep third-party JavaScript to a minimum.
-- Enforce HTTPS.
-- AdSense code must only use the official Google script supplied by the approved account.
+- Use HTTPS.
+- Add AdSense code only from the official approved account after policy/privacy review.
