@@ -281,8 +281,6 @@ img{display:block;max-width:100%}a{color:inherit}button,input{font:inherit}
 }
 body{background:#f7f9fc}
 .main-header{box-shadow:0 1px 0 rgba(13,45,77,.04)}
-.main-nav a[href="quiz.html"]{background:var(--blue);color:#fff;padding-inline:15px}
-.main-nav a[href="quiz.html"]:hover,.main-nav a[href="quiz.html"][aria-current="page"]{background:#09579f;color:#fff}
 
 .hero{min-height:455px}
 .hero-content{min-height:455px}
@@ -339,7 +337,6 @@ body.nav-open{overflow:hidden}
   body.nav-open::before{content:"";position:fixed;inset:106px 0 0;background:rgba(8,28,48,.28);z-index:900;backdrop-filter:blur(1px)}
   .main-nav{z-index:1001;box-shadow:0 16px 32px rgba(16,46,82,.14)}
   .main-nav a{padding:12px 14px}
-  .main-nav a[href="quiz.html"]{margin-top:6px;text-align:center}
 }
 @media(max-width:700px){
   .hero{min-height:auto;background-position:58% center}
@@ -365,4 +362,13 @@ body.nav-open{overflow:hidden}
   .nav-toggle{width:42px;height:42px}
   .main-nav{top:68px}
   body.nav-open::before{inset:100px 0 0}
+}
+
+
+/* V3.12 — Quiz + shared branding */
+.quiz-intro-grid.quiz-intro-single{grid-template-columns:minmax(0,1fr)}
+.quiz-app-toolbar-direct{justify-content:flex-start}
+@media(max-width:700px){
+  .quiz-intro-grid.quiz-intro-single{grid-template-columns:1fr}
+  .quiz-app-toolbar-direct{padding:14px}
 }
