@@ -1,7 +1,7 @@
 {
   "name": "Gyan Shiksha",
   "short_name": "GyanShiksha",
-  "description": "Gujarati Medium Std. 6–12 learning portal",
+  "description": "Gyan Shiksha Student Learning Portal",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
