@@ -14,6 +14,7 @@
   const bestEl = root.querySelector("[data-game-best]");
   const numberEl = root.querySelector("[data-game-number]");
   const progressEl = root.querySelector("[data-game-progress]");
+  const progressBar = root.querySelector(".game-progress");
   const labelEl = root.querySelector("[data-game-label]");
 
   const labels = {
@@ -124,6 +125,7 @@
     numberEl.textContent = round + 1;
     scoreEl.textContent = score;
     progressEl.style.width = `${(round / 10) * 100}%`;
+    progressBar?.setAttribute("aria-valuenow", String(round));
     feedbackEl.textContent = "જવાબ પસંદ કરો.";
     optionsEl.innerHTML = "";
 
@@ -156,6 +158,7 @@
 
     round += 1;
     progressEl.style.width = `${(round / 10) * 100}%`;
+    progressBar?.setAttribute("aria-valuenow", String(round));
     setTimeout(() => round < 10 ? renderQuestion() : finishGame(), 650);
   }
 
@@ -169,6 +172,7 @@
     startButton.hidden = true;
     restartButton.hidden = false;
     progressEl.style.width = "100%";
+    progressBar?.setAttribute("aria-valuenow", "10");
     lockModes(false);
   }
 
@@ -185,8 +189,12 @@
 
   modeButtons.forEach(button => {
     button.addEventListener("click", () => {
-      modeButtons.forEach(b => b.classList.remove("is-selected"));
+      modeButtons.forEach(b => {
+        b.classList.remove("is-selected");
+        b.setAttribute("aria-pressed", "false");
+      });
       button.classList.add("is-selected");
+      button.setAttribute("aria-pressed", "true");
       mode = button.dataset.gameMode;
       labelEl.textContent = labels[mode];
       readBest();
@@ -195,6 +203,7 @@
         optionsEl.innerHTML = "";
         feedbackEl.textContent = "Start Game દબાવો.";
         progressEl.style.width = "0%";
+        progressBar?.setAttribute("aria-valuenow", "0");
         scoreEl.textContent = "0";
         startButton.hidden = false;
         restartButton.hidden = true;
