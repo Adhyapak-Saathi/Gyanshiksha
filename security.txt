@@ -1,3 +1,5 @@
 Contact: https://adhyapak-saathi.github.io/Gyanshiksha/contact.html
-Contact: mailto:janjani431@yahoo.com
+Policy: https://adhyapak-saathi.github.io/Gyanshiksha/security.html
 Preferred-Languages: gu, en
+Canonical: https://adhyapak-saathi.github.io/Gyanshiksha/.well-known/security.txt
+Expires: 2027-10-07T23:59:59Z
