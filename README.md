@@ -62,3 +62,12 @@ Quiz Web App:
 - Removed the visible direct Google Apps Script full-screen link from the Quiz page
 - Updated Privacy Policy to disclose current Quiz Saathi data collection/storage flow
 - Google Apps Script remains the backend inside an iframe; the browser address stays on Gyan Shiksha
+
+## V3.5
+- Added functional browser-based educational games with three modes
+- Games page is now indexable and stores only local best scores
+- Converted Blog from placeholders into three original evergreen study guides
+- Added individual indexable article pages for board planning, revision and self-test guidance
+- Improved Updates page but kept it `noindex` until verified current updates are available
+- Sitemap generator now excludes pages marked `noindex`
+- Search index now includes the new study-guidance articles
