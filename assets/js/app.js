@@ -44,11 +44,9 @@
   const searchResults = document.querySelector("[data-site-search-results]");
 
   const pages = [
-    {title:"Study Material", desc:"Notes, revision, practice sheets and model papers", url:"study-material.html", keys:"study material notes revision practice worksheet model paper અભ્યાસ સામગ્રી નોટ્સ મોડેલ પેપર"},
     {title:"Board Exam", desc:"Std. 10 and Std. 12 board preparation", url:"board-exam.html", keys:"board exam gseb standard 10 12 std 10 std 12 બોર્ડ પરીક્ષા ધોરણ 10 12"},
     {title:"Online Quiz", desc:"Chapter-wise quiz and self-practice", url:"quiz.html", keys:"quiz mcq online test practice ક્વિઝ ટેસ્ટ પ્રશ્ન"},
     {title:"Learning Games", desc:"Educational games and quick practice", url:"games.html", keys:"games learning math language science ગેમ્સ રમત ગણિત"},
-    {title:"Education Updates", desc:"School and board related updates", url:"updates.html", keys:"updates news notice board date academic અપડેટ સમાચાર સૂચના"},
     {title:"Blog", desc:"Study guidance and original educational articles", url:"blog.html", keys:"blog study plan revision tips guidance અભ્યાસ આયોજન માર્ગદર્શન"},
     {title:"Study Plan", desc:"Board-focused planning guides", url:"study-plan.html", keys:"study plan timetable revision schedule અભ્યાસ આયોજન સમયપત્રક"}
   ];

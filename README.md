@@ -91,3 +91,13 @@ Quiz Web App:
 - Marked Study Material `noindex,follow` until real notes/resources are available
 - Added root `security.txt` fallback because hidden `.well-known` folders may not upload through every browser workflow
 - Rebuilt sitemap after indexability changes
+
+## V3.8 Launch Candidate
+- Primary navigation now promotes only live/useful sections
+- Study Material and Updates stay available for development but are not promoted/indexed yet
+- Removed every pre-approval Advertisement placeholder from production HTML
+- Tightened CSP so only Quiz pages may frame Google Apps Script
+- Improved game localStorage resilience and locks mode switching during a round
+- Added three more original educational guides: Answer Writing, Maths Practice, Exam Week
+- Synchronized OpenGraph metadata and mobile manifest links
+- Added a stronger launch validator for sitemap/indexability/navigation/ad-placeholder checks

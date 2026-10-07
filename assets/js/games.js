@@ -36,7 +36,12 @@
   }
 
   function readBest() {
-    const value = Number(localStorage.getItem(bestKey()) || 0);
+    let value = 0;
+    try {
+      value = Number(localStorage.getItem(bestKey()) || 0);
+    } catch (_) {
+      value = 0;
+    }
     bestEl.textContent = value;
     return value;
   }
@@ -44,9 +49,20 @@
   function writeBest() {
     const current = readBest();
     if (score > current) {
-      localStorage.setItem(bestKey(), String(score));
+      try {
+        localStorage.setItem(bestKey(), String(score));
+      } catch (_) {
+        // Storage can be unavailable in restrictive/private browser modes.
+      }
       bestEl.textContent = score;
     }
+  }
+
+  function lockModes(locked) {
+    modeButtons.forEach(button => {
+      button.disabled = locked;
+      button.setAttribute("aria-disabled", String(locked));
+    });
   }
 
   function arithmeticQuestion() {
@@ -153,6 +169,7 @@
     startButton.hidden = true;
     restartButton.hidden = false;
     progressEl.style.width = "100%";
+    lockModes(false);
   }
 
   function startGame() {
@@ -161,6 +178,7 @@
     scoreEl.textContent = "0";
     startButton.hidden = true;
     restartButton.hidden = true;
+    lockModes(true);
     readBest();
     renderQuestion();
   }
