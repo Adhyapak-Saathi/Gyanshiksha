@@ -1,832 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="gu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>જ્ઞાનશિક્ષા - શૈક્ષણિક પોર્ટલ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-body: #f4f7f6;
-            --bg-white: #ffffff;
-            --text-dark: #2d3436;
-            --text-muted: #636e72;
-            --primary-color: #f39c12; /* Yellow/Orange */
-            --primary-hover: #e67e22;
-            --secondary-color: #2980b9; /* Blue */
-            --border-color: #dfe6e9;
-            --footer-bg: #222222;
-            --correct-bg: #e3fbed;
-            --correct-border: #27ae60;
-            --correct-text: #219653;
-            --wrong-bg: #fdeaea;
-            --wrong-border: #e74c3c;
-            --wrong-text: #c0392b;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Gyan Shiksha</title>
+  <meta name="description" content="Gujarati Medium Std. 6–12 school learning portal with board exam resources, quiz, games and updates.">
+  <link rel="canonical" href="https://adhyapak-saathi.github.io/Gyanshiksha/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gyan Shiksha">
+  <meta property="og:title" content="Home | Gyan Shiksha">
+  <meta property="og:description" content="Gujarati Medium Std. 6–12 school learning portal with board exam resources, quiz, games and updates.">
+  <meta property="og:url" content="https://adhyapak-saathi.github.io/Gyanshiksha/">
+  <meta property="og:image" content="https://adhyapak-saathi.github.io/Gyanshiksha/assets/img/og-cover.svg">
+  <meta name="theme-color" content="#0c4f8a">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Mukta', sans-serif; }
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
-        body { background-color: var(--bg-body); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-        /* --- Navbar --- */
-        .top-info { background: #f8f9fa; padding: 5px 50px; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); border-bottom: 1px solid var(--border-color); }
-        .top-info span { display: flex; align-items: center; gap: 8px; }
-        
-        .navbar { background-color: var(--bg-white); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: var(--text-dark); cursor: pointer; text-transform: uppercase; }
-        .logo i { color: var(--secondary-color); font-size: 28px; }
-
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links li { font-size: 16px; font-weight: 600; color: var(--text-dark); cursor: pointer; transition: color 0.3s; padding: 5px 0; }
-        .nav-links li:hover, .nav-links li.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); }
-
-        @media (max-width: 900px) {
-            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            .top-info { display: none; }
-        }
-
-        /* --- Hero Section --- */
-        .hero { position: relative; background-image: url('jaredd-craig-HH4WBGNyltc-unsplash.jpg'); background-size: cover; background-position: center; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
-        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
-        
-        .big-counter { font-size: 48px; font-weight: 800; color: var(--primary-color); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: baseline; gap: 10px; }
-        .big-counter span { font-size: 24px; color: #fff; font-weight: 400; font-family: 'Mukta', sans-serif; }
-        
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 18px; font-weight: 400; margin-bottom: 30px; line-height: 1.6; color: #e0e0e0; }
-
-        .btn { padding: 14px 30px; font-size: 16px; font-weight: 700; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; text-decoration: none; border: none; }
-        .btn-yellow { background-color: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
-        .btn-yellow:hover { background-color: transparent; color: var(--primary-color); }
-        .btn-outline { background-color: transparent; color: white; border: 2px solid white; }
-        .btn-outline:hover { background-color: white; color: var(--text-dark); }
-        .btn-blue { background-color: var(--secondary-color); color: white; border: 2px solid var(--secondary-color); }
-        .btn-blue:hover { background-color: transparent; color: var(--secondary-color); }
-
-        /* --- Sections Management --- */
-        .screen-section { display: none; padding: 60px 20px; max-width: 1200px; margin: 0 auto; width: 100%; flex: 1; }
-        .screen-section.active { display: block; }
-        .section-title { text-align: center; font-size: 32px; font-weight: 800; color: var(--text-dark); margin-bottom: 40px; text-transform: uppercase; }
-        .section-title::after { content: ""; display: block; width: 80px; height: 3px; background: var(--primary-color); margin: 10px auto 0; }
-
-        /* --- Latest News (Home) --- */
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .news-card { background: var(--bg-white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
-        .news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--primary-color); }
-        .news-img { width: 100%; height: 200px; object-fit: cover; }
-        .news-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
-        .news-text h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--text-dark); line-height: 1.4; }
-        .news-text p { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; flex: 1; }
-        .news-link-btn { align-self: flex-start; background: #eef2f3; color: var(--secondary-color); padding: 8px 15px; border-radius: 4px; font-weight: bold; text-decoration: none; border: 1px solid var(--border-color); transition: 0.3s; }
-        .news-link-btn:hover { background: var(--secondary-color); color: white; }
-
-        /* --- Test Screen --- */
-        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-        .test-card { background: var(--bg-white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid var(--border-color); }
-        .test-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--secondary-color); }
-        .test-img { width: 100%; height: 180px; object-fit: cover; }
-        .test-card-content { padding: 25px; }
-        .test-card-content h4 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-        
-        .test-tags-row { display: flex; gap: 8px; margin: 15px 0 20px 0; align-items: center; flex-wrap: wrap; justify-content: center;}
-        .tag-btn { padding: 8px 12px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.3s; background: transparent; width: 48%; }
-        .tag-btn.free { border: 2px solid var(--correct-border); color: var(--correct-border); }
-        .tag-btn.free:hover { background: var(--correct-border); color: white; }
-        .tag-badge { padding: 6px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; background: transparent; border: 2px solid; cursor: default; }
-        .tag-badge.mock { border-color: #f39c12; color: #f39c12; }
-        .tag-badge.paid { border-color: #e74c3c; color: #e74c3c; }
-        
-        .btn-lock { width: 100%; background: #f8f9fa; border: 1px solid #dfe6e9; color: #2d3436; font-weight: bold; padding: 12px; border-radius: 4px; cursor: not-allowed; text-align: center; font-size: 15px; transition: 0.2s;}
-        .btn-lock:hover { background: #e9ecef; }
-        .btn-lock i { color: #e74c3c; margin-right: 5px; }
-
-        /* --- Construction Screen (Blog) --- */
-        .construction-box { text-align: center; padding: 80px 20px; background: var(--bg-white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .construction-box i { font-size: 80px; color: var(--primary-color); margin-bottom: 20px; }
-        .construction-box h2 { font-size: 28px; margin-bottom: 10px; }
-
-        /* --- About Screen --- */
-        .about-content { background: var(--bg-white); padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); line-height: 1.8; font-size: 18px; }
-        .about-content p { margin-bottom: 20px; }
-        .about-content ul { margin-left: 20px; margin-bottom: 20px; }
-
-        /* --- Educational Games (Maths) --- */
-        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .game-card { background: var(--bg-white); padding: 30px; text-align: center; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; border: 2px solid transparent; transition: 0.3s; }
-        .game-card:hover { border-color: var(--secondary-color); transform: translateY(-5px); }
-        .game-card i { font-size: 40px; color: var(--secondary-color); margin-bottom: 15px; }
-        .game-card h3 { font-size: 22px; font-weight: 700; }
-
-        #math-quiz-area { background: var(--bg-white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: none; max-width: 800px; margin: 0 auto; }
-        .math-q-text { font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--secondary-color); letter-spacing: 2px;}
-        .math-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        @media(max-width:500px){ .math-options{grid-template-columns: 1fr;} }
-        .math-opt-btn { padding: 15px; font-size: 20px; font-weight: bold; background: var(--bg-body); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .math-opt-btn:hover:not(:disabled) { border-color: var(--secondary-color); background: #ebf5fb; }
-        .math-opt-btn.correct { background: var(--correct-bg); border-color: var(--correct-border); color: var(--correct-text); }
-        .math-opt-btn.wrong { background: var(--wrong-bg); border-color: var(--wrong-border); color: var(--wrong-text); }
-        
-        .reason-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 25px; border-radius: 4px; display: none; font-size: 18px; color: #856404; }
-        .math-score-board { text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 20px; color: var(--text-muted); }
-
-        /* --- Psychology Quiz Area --- */
-        #psych-quiz-area { background: var(--bg-white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: none; max-width: 800px; margin: 0 auto; }
-        
-        /* --- Footer --- */
-        .footer { background-color: var(--footer-bg); color: #ccc; padding: 60px 20px 20px; margin-top: auto; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        
-        .footer-col h3 { color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
-        .footer-col h3::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--primary-color); }
-        
-        .footer-contact p { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 15px; }
-        .footer-contact i { color: var(--primary-color); margin-top: 4px; }
-        
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: #aaa; text-decoration: none; transition: 0.3s; cursor: pointer;}
-        .footer-links a:hover { color: var(--primary-color); padding-left: 5px; }
-
-        /* Footer Formspree Suggestion Box */
-        .quick-contact .form-control { width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; }
-        .quick-contact .form-control:focus { outline: none; border-color: var(--primary-color); }
-        .quick-contact textarea { height: 80px; resize: vertical; }
-        .quick-contact .btn-submit { background: var(--secondary-color); color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
-        .quick-contact .btn-submit:hover { background: #1a5276; }
-        #form-success-msg { display: none; color: #2ecc71; margin-top: 10px; font-size: 14px; font-weight: bold; }
-
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 15px; font-size: 14px; }
-        .social-icons { display: flex; gap: 15px; }
-        .social-icons a { color: #aaa; font-size: 18px; transition: 0.3s; }
-        .social-icons a:hover { color: #fff; }
-        .visitor-badge { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; }
-    </style>
+  <script defer src="assets/js/app.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="top-info">
-        <span><i class="fa-solid fa-envelope"></i> janijani431@yahoo.com</span>
-        <span>શૈક્ષણિક પોર્ટલ અને સ્પર્ધાત્મક પરીક્ષા પ્લેટફોર્મ</span>
+<header class="site-header">
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <span>support@gyanshiksha.in</span>
+      <nav aria-label="Utility navigation">
+        <a href="board-exam.html">Board Exam</a>
+        <a href="study-plan.html">Study Plan</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="main-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Gyan Shiksha Home">
+        <img src="assets/img/logo.svg" width="46" height="46" alt="">
+        <div>
+          <strong>જ્ઞાનશિક્ષા</strong>
+          <small>Students' Learning Portal</small>
+        </div>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="study-material.html">Study Material</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="games.html">Games</a>
+        <a href="board-exam.html">Board Exam</a>
+        <a href="updates.html">Updates</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+  <main id="main">
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-copy">
+      <span class="eyebrow">Gujarati Medium • Std. 6–12</span>
+      <h1>ચાલો, ભણવામાં મજા કરીએ!</h1>
+      <h2>ગુજરાતના વિદ્યાર્થીઓ માટે એક વિશ્વસનીય શૈક્ષણિક પ્લેટફોર્મ</h2>
+      <p>Study Material, Online Quiz, Educational Games, Board Exam resources, Model Papers અને useful updates — એક જ જગ્યાએ.</p>
+
+      <form class="search-box" action="study-material.html" method="get" role="search">
+        <label class="sr-only" for="site-search">Search learning resources</label>
+        <input id="site-search" name="q" type="search" placeholder="Search study material, quiz, model paper...">
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="quick-tags" aria-label="Quick links">
+        <a href="board-exam.html">Std. 10 Board</a>
+        <a href="board-exam.html">Std. 12 Board</a>
+        <a href="study-material.html">Model Papers</a>
+        <a href="quiz.html">Online Quiz</a>
+      </div>
     </div>
 
-    <nav class="navbar">
-        <div class="logo" onclick="showScreen('home')">
-            <i class="fa-solid fa-graduation-cap"></i> જ્ઞાનશિક્ષા
-        </div>
-        <ul class="nav-links">
-            <li class="nav-item active" onclick="showScreen('home')">હોમ</li>
-            <li class="nav-item" onclick="showScreen('test')">ટેસ્ટ</li>
-            <li class="nav-item" onclick="showScreen('blog')">બ્લોગ</li>
-            <li class="nav-item" onclick="showScreen('games')">શૈક્ષણિક ગેમ્સ</li>
-            <li class="nav-item" onclick="showScreen('about')">અમારા વિશે</li>
-            <li class="nav-item" onclick="showScreen('contact')">સંપર્ક</li>
-        </ul>
-    </nav>
+    <aside class="hero-panel" aria-label="Portal highlights">
+      <div class="quote-card">“જ્ઞાન એ ઉજ્જવળ ભવિષ્યનો મજબૂત પાયો છે”</div>
+      <ul>
+        <li><span>📘</span> Gujarati Medium</li>
+        <li><span>🎯</span> Board Exam Focus</li>
+        <li><span>🧠</span> Quiz & Practice</li>
+        <li><span>🎮</span> Educational Games</li>
+        <li><span>📄</span> Model Papers</li>
+        <li><span>📈</span> Study Guidance</li>
+      </ul>
+    </aside>
+  </div>
+</section>
 
-    <div id="screen-home" class="screen-section active" style="padding: 0; max-width: 100%;">
-        <div class="hero">
-            <div class="hero-content">
-                <div class="big-counter">
-                    <!-- Removed specific visitor string -->
-                </div>
-                <h1>જ્ઞાનશિક્ષા શૈક્ષણિક પોર્ટલ</h1>
-                <p>સ્પર્ધાત્મક પરીક્ષાઓ (TET, TAT) અને શૈક્ષણિક હેતુઓ માટે ખાસ તૈયાર કરેલ ઓનલાઈન ક્વિઝ, શૈક્ષણિક ગેમ્સ અને અભ્યાસ સામગ્રીનું શ્રેષ્ઠ માધ્યમ.</p>
-                </div>
-        </div>
+<!-- AdSense placeholder only. Real script/client IDs will be added after approval. -->
+<section class="ad-wrap" aria-label="Advertisement placeholder">
+  <div class="container">
+    <div class="ad-slot ad-slot-wide" data-ad-slot="home-top">
+      <span>Advertisement</span>
+      <small>Reserved for future Google AdSense</small>
+    </div>
+  </div>
+</section>
 
-        <div style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
-            <h2 class="section-title">નવીનતમ સમાચાર (Latest News)</h2>
-            <div class="news-grid">
-                
-                <div class="news-card">
-                    <img src="1000_F_315952395_4JIWEYrphH93W2vSFOEqF8pyAVdSGZXA.jpg" class="news-img" alt="TAT HS News">
-                    <div class="news-content">
-                        <div class="news-text">
-                            <h4>TAT-HS 2026 પરીક્ષાની તારીખોમાં ફેરફાર અંગે</h4>
-                            <p>રાજ્ય પરીક્ષા બોર્ડ દ્વારા ઉચ્ચતર માધ્યમિક શિક્ષક યોગ્યતા કસોટી (TAT-HS) 2026 ની લેખિત પરીક્ષાની તારીખોમાં ફેરફાર કરવામાં આવ્યો છે. ઉમેદવારોએ નવો કાર્યક્રમ સત્તાવાર પત્રમાં જોવો.</p>
-                        </div>
-                        <a href="https://www.sebexam.org/AdvertiseFiles/2026/tat%20hs%202026%20date%20change%20letter_032026.pdf" target="_blank" class="news-link-btn">
-                            <i class="fa-solid fa-download"></i> સત્તાવાર પત્ર ડાઉનલોડ કરો
-                        </a>
-                    </div>
-                </div>
-
-                <div class="news-card">
-                    <img src="1000_F_291245425_hykHpeTITwonlC1wHrGvjZO8ZmYMJQ3r.jpg" class="news-img" alt="TAT S Notification">
-                    <div class="news-content">
-                        <div class="news-text">
-                            <h4>TAT-S 2026 સત્તાવાર જાહેરનામું (Notification)</h4>
-                            <p>માધ્યમિક શાળાઓમાં શિક્ષક બનવા માંગતા ઉમેદવારો માટે TAT-S 2026 ની સત્તાવાર નોટિફિકેશન બહાર પાડવામાં આવી છે. ઓનલાઇન ફોર્મ ભરવાની તારીખો અને અન્ય માહિતી માટે જાહેરનામું વાંચો.</p>
-                        </div>
-                        <a href="https://www.sebexam.org/AdvertiseFiles/2026/tat%20-%20s%202026%20notification_022026.pdf" target="_blank" class="news-link-btn">
-                            <i class="fa-solid fa-file-pdf"></i> જાહેરનામું વાંચો
-                        </a>
-                    </div>
-                </div>
-
-                <div class="news-card">
-                    <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop" class="news-img" alt="Education News">
-                    <div class="news-content">
-                        <div class="news-text">
-                            <h4>શૈક્ષણિક પોર્ટલ પર નવી ટેસ્ટ સિરીઝ </h4>
-                            <p>આપણા પોર્ટલ પર ટૂંક સમયમાં જ TAT-S અને TAT-HS માટે મનોવિજ્ઞાન, સામાન્ય જ્ઞાન અને ભાષાની ફ્રી મોક ટેસ્ટ શરૂ કરવામાં આવી રહી છે. જોડાયેલા રહો.</p>
-                        </div>
-                        <a onclick="showScreen('test')" class="news-link-btn" style="cursor: pointer;">
-                            <i class="fa-solid fa-arrow-right"></i> ટેસ્ટ પેજ જુઓ
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+<section class="section compact-top">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Quick Access</span>
+        <h2>ઝડપી પ્રવેશ</h2>
+      </div>
+      <p>તમારે જે કામ માટે આવ્યા છો ત્યાં સીધા જાઓ.</p>
     </div>
 
-    <div id="screen-test" class="screen-section">
-        <h2 class="section-title">ઓનલાઈન ટેસ્ટ અને ક્વિઝ</h2>
+    <div class="quick-grid">
+      <a class="quick-card tone-blue" href="study-material.html">
+        <span class="quick-icon">📚</span>
+        <div><strong>Study Material</strong><small>Notes, revision & practice</small></div>
+        <b>→</b>
+      </a>
+      <a class="quick-card tone-green" href="quiz.html">
+        <span class="quick-icon">🧠</span>
+        <div><strong>Online Quiz</strong><small>Chapter-wise practice</small></div>
+        <b>→</b>
+      </a>
+      <a class="quick-card tone-violet" href="board-exam.html">
+        <span class="quick-icon">🎓</span>
+        <div><strong>Board Exam</strong><small>Std. 10 & 12 special</small></div>
+        <b>→</b>
+      </a>
+      <a class="quick-card tone-orange" href="games.html">
+        <span class="quick-icon">🎮</span>
+        <div><strong>Learning Games</strong><small>Practice with fun</small></div>
+        <b>→</b>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <h3 style="margin-bottom: 20px; color: var(--secondary-color); font-size: 24px;">સ્પર્ધાત્મક પરીક્ષા (Mock Tests)</h3>
-        <div class="test-grid">
-            
-            <!-- TAT S Card updated with 4 chapters -->
-            <div class="test-card">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop" alt="TAT-S Test" class="test-img">
-                <div class="test-card-content">
-                    <h4>TAT-S (માધ્યમિક શિક્ષક)</h4>
-                    <p style="color: var(--text-muted); font-size: 15px;">ધોરણ ૯ અને ૧૦ ના શિક્ષકો માટેની પરીક્ષાની સંપૂર્ણ તૈયારી અને ટેસ્ટ સિરીઝ.</p>
-                    
-                    <div class="test-tags-row">
-                        <button class="tag-btn free" onclick="startPsychQuiz(1)">ફ્રી ટેસ્ટ (પ્રકરણ ૧)</button>
-                        <button class="tag-btn free" onclick="startPsychQuiz(2)">ફ્રી ટેસ્ટ (પ્રકરણ ૨)</button>
-                        <button class="tag-btn free" onclick="startPsychQuiz(3)">ફ્રી ટેસ્ટ (પ્રકરણ ૩)</button>
-                        <button class="tag-btn free" onclick="startPsychQuiz(4)">ફ્રી ટેસ્ટ (પ્રકરણ ૪)</button>
-                    </div>
-                    
-                    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
-                        <span class="tag-badge mock">મોક ટેસ્ટ</span>
-                        <span class="tag-badge paid">પેઇડ ટેસ્ટ</span>
-                    </div>
-                    
-                    <button class="btn-lock" onclick="alert('આ ટેસ્ટ પર કામ ચાલી રહ્યું છે. ટૂંક સમયમાં ઉપલબ્ધ થશે.')">
-                        <i class="fa-solid fa-lock"></i> ટેસ્ટ શરૂ કરો (COMING SOON)
-                    </button>
-                </div>
-            </div>
-
-            <!-- TAT HS Card updated with 4 chapters -->
-            <div class="test-card">
-                <img src="https://images.unsplash.com/photo-1510531704581-5b2870972060?q=80&w=800&auto=format&fit=crop" alt="TAT-HS Test" class="test-img">
-                <div class="test-card-content">
-                    <h4>TAT-HS (ઉચ્ચતર માધ્યમિક શિક્ષક)</h4>
-                    <p style="color: var(--text-muted); font-size: 15px;">ધોરણ ૧૧ અને ૧૨ ના શિક્ષકો માટેની પરીક્ષાની સંપૂર્ણ તૈયારી અને ટેસ્ટ સિરીઝ.</p>
-                    
-                    <div class="test-tags-row">
-                        <button class="tag-btn free" onclick="startPsychQuiz(1)">ફ્રી ટેસ્ટ (પ્રકરણ ૧)</button>
-                        <button class="tag-btn free" onclick="startPsychQuiz(2)">ફ્રી ટેસ્ટ (પ્રકરણ ૨)</button>
-                        <button class="tag-btn free" onclick="startPsychQuiz(3)">ફ્રી ટેસ્ટ (પ્રકરણ ૩)</button>
-                        <button class="tag-btn free" onclick="startPsychQuiz(4)">ફ્રી ટેસ્ટ (પ્રકરણ ૪)</button>
-                    </div>
-
-                    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
-                        <span class="tag-badge mock">મોક ટેસ્ટ</span>
-                        <span class="tag-badge paid">પેઇડ ટેસ્ટ</span>
-                    </div>
-                    
-                    <button class="btn-lock" onclick="alert('આ ટેસ્ટ પર કામ ચાલી રહ્યું છે. ટૂંક સમયમાં ઉપલબ્ધ થશે.')">
-                        <i class="fa-solid fa-lock"></i> ટેસ્ટ શરૂ કરો (COMING SOON)
-                    </button>
-                </div>
-            </div>
-
+<section class="section section-soft">
+  <div class="container">
+    <div class="content-columns">
+      <section class="panel panel-red">
+        <div class="panel-head">
+          <h2>Board Exam Updates</h2>
+          <a href="board-exam.html">View all →</a>
         </div>
+        <article class="list-item">
+          <time>Demo</time>
+          <div><strong>Std. 10 Board Exam resource hub</strong><p>Model Paper, revision plan અને important practice માટે structure.</p></div>
+        </article>
+        <article class="list-item">
+          <time>Demo</time>
+          <div><strong>Std. 12 Board Exam resource hub</strong><p>Stream-wise content માટે તૈયાર section.</p></div>
+        </article>
+        <article class="list-item">
+          <time>Demo</time>
+          <div><strong>Paper Pattern & Revision</strong><p>Board preparation content અહીં publish થશે.</p></div>
+        </article>
+      </section>
+
+      <section class="panel panel-blue">
+        <div class="panel-head">
+          <h2>Latest Education Updates</h2>
+          <a href="updates.html">View all →</a>
+        </div>
+        <article class="media-item">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=75" alt="Students studying in class">
+          <div><strong>School Education Update</strong><p>Official source આધારિત સરળ summary માટે content slot.</p></div>
+        </article>
+        <article class="media-item">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=500&q=75" alt="Books and study desk">
+          <div><strong>Exam & Academic Notice</strong><p>Dates, eligibility અને source link સાથે publish કરાશે.</p></div>
+        </article>
+      </section>
+
+      <section class="panel panel-green">
+        <div class="panel-head">
+          <h2>Study Guidance / Blog</h2>
+          <a href="blog.html">View all →</a>
+        </div>
+        <article class="media-item">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=75" alt="Student writing notes">
+          <div><strong>Board Exam Study Plan</strong><p>3-month revision strategy માટે original article slot.</p></div>
+        </article>
+        <article class="media-item">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=500&q=75" alt="Student reading at desk">
+          <div><strong>Smart Revision Tips</strong><p>વિદ્યાર્થી માટે practical study guidance.</p></div>
+        </article>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="ad-wrap ad-bottom" aria-label="Advertisement placeholder">
+  <div class="container">
+    <div class="ad-slot ad-slot-wide" data-ad-slot="home-bottom">
+      <span>Advertisement</span>
+      <small>Reserved for future Google AdSense</small>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <div class="footer-brand">
+        <img src="assets/img/logo.svg" width="42" height="42" alt="">
+        <div><strong>જ્ઞાનશિક્ષા</strong><span>ગુજરાતી માધ્યમ • Std. 6–12</span></div>
+      </div>
+      <p>ગુજરાતી માધ્યમના વિદ્યાર્થીઓ માટે અભ્યાસ સામગ્રી, ક્વિઝ, બોર્ડ પરીક્ષા માર્ગદર્શન અને વિશ્વસનીય શૈક્ષણિક અપડેટ્સ.</p>
     </div>
 
-    <div id="screen-blog" class="screen-section">
-        <div class="construction-box">
-            <i class="fa-solid fa-blog"></i>
-            <h2>બ્લોગ પેજ બની રહ્યું છે...</h2>
-            <p style="color: var(--text-muted); font-size: 18px;">શૈક્ષણિક લેખો, મનોવિજ્ઞાનના તથ્યો અને માહિતી સભર બ્લોગ પોસ્ટ્સ ટૂંક સમયમાં મુકવામાં આવશે.</p>
-            <button class="btn btn-blue" style="margin-top: 20px;" onclick="showScreen('home')">હોમ પેજ પર જાવ</button>
-        </div>
+    <div>
+      <h2>Quick Links</h2>
+      <a href="study-material.html">Study Material</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="games.html">Games</a>
+      <a href="board-exam.html">Board Exam</a>
+      <a href="blog.html">Blog</a>
     </div>
 
-    <div id="screen-about" class="screen-section">
-        <h2 class="section-title">અમારા વિશે (About Us)</h2>
-        <div class="about-content">
-            <p><strong>નમસ્કાર વિદ્યાર્થી મિત્રો,</strong></p>
-            <p><strong>જ્ઞાનશિક્ષા</strong> વેબસાઇટ ખાસ કરીને વિદ્યાર્થીઓના જ્ઞાનમાં વધારો કરવા, સ્પર્ધાત્મક પરીક્ષાઓની (જેવી કે TAT-S, TAT-HS, TET વિગેરે) તૈયારી કરવા અને મનોવિજ્ઞાન તથા ગણિત જેવા વિષયોને સરળતાથી સમજવા માટે બનાવવામાં આવી છે.</p>
-            <p><strong>અમારો ઉદ્દેશ્ય:</strong></p>
-            <ul>
-                <li>માતૃભાષા ગુજરાતીમાં ઉચ્ચ કક્ષાનું શૈક્ષણિક સાહિત્ય પૂરું પાડવું.</li>
-                <li>બાળકો માટે શૈક્ષણિક ગેમ્સ દ્વારા ગણિતના પાયાના ખ્યાલો (સરવાળા, બાદબાકી) મજબૂત કરવા.</li>
-                <li>સ્પર્ધાત્મક પરીક્ષાઓ માટે ફ્રી અને પેઇડ મોક ટેસ્ટનું શ્રેષ્ઠ માધ્યમ બનવું.</li>
-            </ul>
-            <p>અમે સતત નવા પ્રશ્નો અને નવી ગેમ્સ ઉમેરી રહ્યા છીએ જેથી તમારો અભ્યાસ રોમાંચક બની રહે. તમારા સૂચનો આવકાર્ય છે.</p>
-        </div>
+    <div>
+      <h2>Important</h2>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="editorial-policy.html">Editorial Policy</a>
+      <a href="contact.html">Contact</a>
     </div>
+  </div>
 
-    <div id="screen-contact" class="screen-section">
-        <h2 class="section-title">સંપર્ક કરો (Contact)</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 40px; background: var(--bg-white); padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-            <div style="flex: 1; min-width: 300px;">
-                <h3 style="font-size: 22px; margin-bottom: 20px; color: var(--secondary-color);">અમારો સંપર્ક વિગત</h3>
-                <p style="font-size: 18px; margin-bottom: 15px;"><i class="fa-solid fa-envelope" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>ઈમેલ:</strong> janijani431@yahoo.com</p>
-                <p style="font-size: 18px; margin-bottom: 15px;"><i class="fa-solid fa-location-dot" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>સરનામું:</strong> ગુજરાત, ભારત</p>
-                <p style="color: var(--text-muted); margin-top: 20px;">કોઈપણ શૈક્ષણિક પ્રશ્ન, ક્વિઝમાં ભૂલ કે નવા સૂચન માટે તમે અમને ઈમેલ કરી શકો છો અથવા નીચે ફૂટરમાં આપેલ 'સજેશન બોક્સ' નો ઉપયોગ કરી શકો છો.</p>
-            </div>
-            <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center;">
-                <i class="fa-solid fa-headset" style="font-size: 150px; color: #eef2f3;"></i>
-            </div>
-        </div>
-    </div>
-
-    <div id="screen-games" class="screen-section">
-        <h2 class="section-title">શૈક્ષણિક ગેમ્સ (ગણિત)</h2>
-        <p style="text-align: center; margin-top: -20px; margin-bottom: 40px; color: var(--text-muted); font-size: 18px;">વય જૂથ: ૬ થી ૧૬ વર્ષના બાળકો માટે</p>
-        
-        <div id="games-menu" class="games-grid">
-            <div class="game-card" onclick="startMathGame('add')">
-                <i class="fa-solid fa-plus"></i>
-                <h3>સરવાળો (Addition)</h3>
-            </div>
-            <div class="game-card" onclick="startMathGame('sub')">
-                <i class="fa-solid fa-minus"></i>
-                <h3>બાદબાકી (Subtraction)</h3>
-            </div>
-            <div class="game-card" onclick="startMathGame('mul')">
-                <i class="fa-solid fa-xmark"></i>
-                <h3>ગુણાકાર (Multiplication)</h3>
-            </div>
-            <div class="game-card" onclick="startMathGame('div')">
-                <i class="fa-solid fa-divide"></i>
-                <h3>ભાગાકાર (Division)</h3>
-            </div>
-        </div>
-
-        <div id="math-quiz-area">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px;">
-                <button class="btn btn-outline" style="border-color: var(--border-color); color: var(--text-dark); padding: 5px 15px;" onclick="closeMathGame()">
-                    <i class="fa-solid fa-arrow-left"></i> પાછા ફરો
-                </button>
-                <div style="font-weight: bold; font-size: 18px; color: var(--primary-color);">પ્રશ્ન <span id="m-q-num">૧</span> / ૧૦</div>
-            </div>
-
-            <div class="math-score-board">સ્કોર: <span id="m-score">૦</span> / ૧૦</div>
-            
-            <div id="m-question" class="math-q-text">૨૫ + ૩૫ = ?</div>
-            
-            <div id="m-options" class="math-options"></div>
-
-            <div id="m-reason" class="reason-box"></div>
-
-            <div style="text-align: right;">
-                <button id="m-next-btn" class="btn btn-blue" style="display: none;" onclick="nextMathQuestion()">આગળ વધો <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        </div>
-        
-        <div id="math-result-area" style="display: none; background: var(--bg-white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto;">
-            <i class="fa-solid fa-trophy" style="font-size: 60px; color: var(--primary-color); margin-bottom: 20px;"></i>
-            <h2 style="font-size: 32px; margin-bottom: 10px;">રમત પૂર્ણ!</h2>
-            <div style="font-size: 24px; font-weight: bold; color: var(--secondary-color); margin-bottom: 20px;">તમારો સ્કોર: <span id="m-final-score">૦</span> / ૧૦</div>
-            <button class="btn btn-yellow" onclick="closeMathGame()">અન્ય ગેમ્સ રમો</button>
-        </div>
-    </div>
-
-    <div id="screen-psych-quiz" class="screen-section">
-        <div id="psych-quiz-area">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px;">
-                <button class="btn btn-outline" style="border-color: var(--border-color); color: var(--text-dark); padding: 5px 15px;" onclick="showScreen('test')">
-                    <i class="fa-solid fa-arrow-left"></i> પાછા ફરો
-                </button>
-                <div style="font-weight: bold; font-size: 18px; color: var(--secondary-color);">સ્કોર: <span id="p-live-score">0</span></div>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <div style="color: var(--primary-color); font-weight: 700; font-size: 18px;">પ્રશ્ન <span id="p-q-num">1</span> / <span id="p-total-q">10</span></div>
-            </div>
-            
-            <div id="p-question" style="font-size: 22px; font-weight: 700; margin-bottom: 30px; line-height: 1.5; color: var(--text-dark);">Loading...</div>
-            <div id="p-options"></div>
-            
-            <div style="display: flex; justify-content: space-between; margin-top: 30px;">
-                <button id="p-prev-btn" class="btn" style="background: #95a5a6; color: white; display: none;" onclick="prevPsychQuestion()"><i class="fa-solid fa-arrow-left"></i> પાછળ</button>
-                <button id="p-next-btn" class="btn btn-blue" style="display: none; margin-left: auto;" onclick="nextPsychQuestion()">આગળ <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        </div>
-
-        <div id="psych-result-area" style="display: none; background: var(--bg-white); padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto;">
-            <i class="fa-solid fa-graduation-cap" style="font-size: 60px; color: var(--primary-color); margin-bottom: 20px;"></i>
-            <div style="color: var(--text-muted); font-size: 18px; margin-bottom: 5px;">તમારું પરિણામ</div>
-            <div id="p-final-score" style="font-size: 45px; font-weight: 800; color: var(--secondary-color); margin-bottom: 10px; font-family: 'Montserrat', sans-serif;">0/10</div>
-            <div id="p-feedback" style="font-size: 20px; font-weight: 700; margin-bottom: 30px; padding: 20px; border-radius: 8px;"></div>
-            <button class="btn btn-yellow" onclick="showScreen('test')">ટેસ્ટ પેજ પર પાછા ફરો</button>
-        </div>
-    </div>
-
-
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="logo" style="color: #fff; margin-bottom: 20px;">
-                    <i class="fa-solid fa-graduation-cap" style="color: var(--primary-color);"></i> જ્ઞાનશિક્ષા
-                </div>
-                <div class="footer-contact">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p>અમદાવાદ, ગુજરાત, ભારત</p>
-                </div>
-                <div class="footer-contact">
-                    <i class="fa-solid fa-envelope"></i>
-                    <p>janijani431@yahoo.com</p>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h3>ઉપયોગી લિંક્સ (User Links)</h3>
-                <ul class="footer-links">
-                    <li><a onclick="showScreen('home')"><i class="fa-solid fa-angle-right"></i> હોમ (Home)</a></li>
-                    <li><a onclick="showScreen('about')"><i class="fa-solid fa-angle-right"></i> અમારા વિશે (About Us)</a></li>
-                    <li><a onclick="showScreen('blog')"><i class="fa-solid fa-angle-right"></i> બ્લોગ (Blog)</a></li>
-                    <li><a onclick="showScreen('test')"><i class="fa-solid fa-angle-right"></i> ટેસ્ટ (Test)</a></li>
-                    <li><a onclick="showScreen('games')"><i class="fa-solid fa-angle-right"></i> શૈક્ષણિક ગેમ્સ (Games)</a></li>
-                    <li><a onclick="showScreen('contact')"><i class="fa-solid fa-angle-right"></i> સંપર્ક (Contact)</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col quick-contact">
-                <h3>સજેશન બોક્સ (Quick Contact)</h3>
-                <form id="suggestionForm" action="https://formspree.io/f/xnjgoeod" method="POST">
-                    <input type="email" name="email" class="form-control" placeholder="તમારું ઈમેલ (Your Email)" required>
-                    <textarea name="message" class="form-control" placeholder="તમારો સંદેશ કે સૂચન... (Message)" required></textarea>
-                    <button type="submit" class="btn-submit" id="submitBtnText">સંદેશ મોકલો <i class="fa-solid fa-paper-plane"></i></button>
-                </form>
-                <div id="form-success-msg">તમારો સંદેશ મોકલાઈ ગયો છે!</div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <div>© 2026 જ્ઞાનશિક્ષા શૈક્ષણિક પોર્ટલ. સર્વાધિકાર સુરક્ષિત.</div>
-            <div class="visitor-badge">
-                <i class="fa-regular fa-eye"></i> કુલ મુલાકાતીઓ: 
-                <span id="visitor-counter-container"></span>
-            </div>
-        </div>
-    </footer>
-
-<script>
-    // --- 0. Visitor Counter (Admin Exclude Logic) ---
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('admin') === 'true') {
-        localStorage.setItem('isAdmin', 'true');
-        alert('એડમિન મોડ ચાલુ છે! હવે તમારી મુલાકાત વેબસાઈટના કાઉન્ટરમાં ગણાશે નહીં.');
-        // Remove ?admin=true from URL cleanly
-        window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
-    const counterContainer = document.getElementById('visitor-counter-container');
-    if (localStorage.getItem('isAdmin') !== 'true') {
-        counterContainer.innerHTML = '<img src="https://api.visitorbadge.io/api/visitors?path=psychology128.github.io&countColor=%23f39c12" alt="Visitor Counter" style="height: 20px; border-radius: 4px;">';
-    } else {
-        counterContainer.innerHTML = '<span style="color:#f39c12; font-weight:bold;">(તમે એડમિન છો)</span>';
-    }
-
-    // --- 1. Navigation Logic (SPA) ---
-    function showScreen(screenId) {
-        document.querySelectorAll('.screen-section').forEach(sec => sec.classList.remove('active'));
-        document.querySelectorAll('.nav-links li').forEach(li => li.classList.remove('active'));
-        
-        document.getElementById('screen-' + screenId).classList.add('active');
-        
-        const links = document.querySelectorAll('.nav-links li');
-        if(screenId === 'home') links[0].classList.add('active');
-        else if(screenId === 'test') links[1].classList.add('active');
-        else if(screenId === 'blog') links[2].classList.add('active');
-        else if(screenId === 'games') links[3].classList.add('active');
-        else if(screenId === 'about') links[4].classList.add('active');
-        else if(screenId === 'contact') links[5].classList.add('active');
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // --- 2. Psychology Quiz Logic (Updated 40 Questions) ---
-    const psychQuestions = [
-        // પ્રકરણ ૧ (1-10)
-        { chapter: 1, q: "૧. મનોવિજ્ઞાનના વિષયવસ્તુ-વર્તનના અભ્યાસ પદ્ધતિમાં કેટલી પદ્ધતિઓનો સમાવેશ થાય છે?", opts: ["(a) ચાર", "(b) પાંચ", "(c) છ", "(d) સાત"], ans: 2 },
-        { chapter: 1, q: "૨. ..........નું વિષયવસ્તુ જીવંત માનવીનું વર્તન છે.", opts: ["(a) જીવવિજ્ઞાન", "(b) મનોવિજ્ઞાન", "(c) ભૌતિક વિજ્ઞાન", "(d) રસાયણવિજ્ઞાન"], ans: 1 },
-        { chapter: 1, q: "૩. મનોમાપનલક્ષી મનોવિજ્ઞાનનો આરંભ કોની બુદ્ધિકસોટી સાથે થયો એમ ગણી શકાય?", opts: ["(a) ડૉ. ભાટિયા", "(b) વોટ્સન", "(c) બીને સાયમન", "(d) ડૉ. દેસાઈ"], ans: 2 },
-        { chapter: 1, q: "૪. અન્ય ક્ષેત્રોને મનોમાપન માટેનાં સાધનો પૂરાં પાડવાનું કાર્ય કયા ક્ષેત્ર દ્વારા થાય છે?", opts: ["(a) સંગઠનલક્ષી મનોવિજ્ઞાન", "(b) શાળાકીય મનોવિજ્ઞાન", "(c) ચિકિત્સા મનોવિજ્ઞાન", "(d) પ્રાયોગિક મનોમાપનલક્ષી"], ans: 3 },
-        { chapter: 1, q: "૫. તન-દુરસ્ત અને મન-દુરસ્ત જીવન કેવી રીતે જીવવું તે અંગેનું માર્ગદર્શન કઈ શાખા આપે છે?", opts: ["(a) સલાહ મનોવિજ્ઞાન", "(b) સ્વાસ્થ્ય મનોવિજ્ઞાન", "(c) પર્યાવરણલક્ષી", "(d) રમત-ગમતનું મનોવિજ્ઞાન"], ans: 1 },
-        { chapter: 1, q: "૬. મનોવિજ્ઞાનની કઈ શાખા માનસિક રોગો અને વિકૃતિઓ પર થતી ઔષધોની અસરનો અભ્યાસ કરે છે?", opts: ["(a) ચિકિત્સા", "(b) તુલનાત્મક-શરીરલક્ષી", "(c) સલાહ", "(d) સ્વાસ્થ્યલક્ષી"], ans: 1 },
-        { chapter: 1, q: "૭. વિદ્યાર્થીઓની વ્યક્તિગત સમસ્યાનું નિદાન અને ઉપચાર કરવાનું કાર્ય કોણ કરે છે?", opts: ["(a) શાળા મનોવૈજ્ઞાનિકો", "(b) સલાહ મનોવૈજ્ઞાનિકો", "(c) ચિકિત્સા મનોવૈજ્ઞાનિકો", "(d) શૈક્ષણિક મનોવૈજ્ઞાનિકો"], ans: 0 },
-        { chapter: 1, q: "૮. મનોવિજ્ઞાનની કઈ શાખા સામાજિક પરિસ્થિતિમાં વ્યક્તિના વર્તનને સમજવાનો પ્રયાસ કરે છે?", opts: ["(a) વિકાસાત્મક", "(b) સમાજલક્ષી", "(c) મનોમાપનલક્ષી", "(d) પર્યાવરણલક્ષી"], ans: 1 },
-        { chapter: 1, q: "૯. મોટા ભાગનાં જાહેર સાહસોમાં કર્મચારી પસંદગી માટે મનોવિજ્ઞાનની કઈ શાખાની મદદ લેવાય છે?", opts: ["(a) મનોમાપન લક્ષી", "(b) સમાજલક્ષી", "(c) ઔદ્યોગિક", "(d) પર્યાવરણલક્ષી"], ans: 2 },
-        { chapter: 1, q: "૧૦. પોતાની અંદર અંતર્મુખ થઈને પોતાનામાં ચાલતા મનોવ્યાપારોનું નિરીક્ષણ કઈ પદ્ધતિમાં થાય છે?", opts: ["(a) વ્યવસ્થિત નિરીક્ષણ", "(b) ક્ષેત્ર નિરીક્ષણ", "(c) સહભાગી નિરીક્ષણ", "(d) આંતર નિરીક્ષણ"], ans: 3 },
-        
-        // પ્રકરણ ૨ (11-20)
-        { chapter: 2, q: "૧૧. કુદરતી નિરીક્ષણ પદ્ધતિની મર્યાદા દૂર કરવા માટે કેટલાંક ટેકનિકલ સાધનોનો ઉપયોગ કઈ પદ્ધતિમાં થાય છે?", opts: ["(a) ક્ષેત્ર નિરીક્ષણ", "(b) આંતરનિરીક્ષણ", "(c) વ્યવસ્થિત નિરીક્ષણ", "(d) સહભાગી નિરીક્ષણ"], ans: 2 },
-        { chapter: 2, q: "૧૨. નિરીક્ષણની કઈ પદ્ધતિમાં અચેતન મનનો અભ્યાસ કરી શકાતો નથી?", opts: ["(a) કુદરતી નિરીક્ષણ", "(b) ક્ષેત્ર નિરીક્ષણ", "(c) સહભાગી નિરીક્ષણ", "(d) આંતર નિરીક્ષણ"], ans: 3 },
-        { chapter: 2, q: "૧૩. ચોક્કસ જૂથ વિશેની અપૂરતી માહિતી હોય, તો નિરીક્ષક તે જૂથના સભ્ય બનીને કઈ પદ્ધતિ દ્વારા માહિતી મેળવે છે?", opts: ["(a) સહભાગી નિરીક્ષણ", "(b) વ્યવસ્થિત નિરીક્ષણ", "(c) આંતર નિરીક્ષણ", "(d) ક્ષેત્ર નિરીક્ષણ"], ans: 0 },
-        { chapter: 2, q: "૧૪. કઈ અભ્યાસ પદ્ધતિમાં વ્યક્તિના ભૂતકાળ અને વર્તમાનના અભ્યાસ પરથી ભવિષ્ય વિશે માર્ગદર્શન અપાય છે?", opts: ["(a) સમકાલીન", "(b) દીર્ઘકાલીન", "(c) વ્યક્તિ ઇતિહાસ", "(d) નિરીક્ષણ"], ans: 2 },
-        { chapter: 2, q: "૧૫. સમયના બચાવ માટે સમાન ગુણલક્ષણ ધરાવતાં પ્રયોગપાત્ર પર એકસાથે અભ્યાસ કઈ પદ્ધતિમાં થાય છે?", opts: ["(a) વ્યવસ્થિત", "(b) તુલનાત્મક", "(c) દીર્ઘકાલીન", "(d) સમકાલીન"], ans: 3 },
-        { chapter: 2, q: "૧૬. “નિરીક્ષણ એટલે આંખો દ્વારા હેતુપૂર્વક સ્વાભાવિક ઘટનાઓ કે બનાવોને ક્રમબદ્ધ કરવામાં આવેલો અભ્યાસ” - આ વ્યાખ્યા કોની છે?", opts: ["(a) ટિશનર", "(b) બી.એફ. એન્ડરસન", "(c) યંગ", "(d) ક્રોનબેક"], ans: 2 },
-        { chapter: 2, q: "૧૭. કયા પ્રકારનો અભ્યાસ એકના એક પ્રયોગપાત્ર ઉપર ખૂબ જ લાંબા સમય સુધી ચાલે છે?", opts: ["(a) સહભાગી", "(b) દીર્ઘકાલીન", "(c) સમકાલીન", "(d) તુલનાત્મક"], ans: 1 },
-        { chapter: 2, q: "૧૮. રૂબરૂ મુલાકાત કઈ અભ્યાસ પદ્ધતિમાં લેવામાં આવે છે?", opts: ["(a) પ્રશ્નાવલિ", "(b) સહભાગી", "(c) મુલાકાત", "(d) આપેલ તમામ"], ans: 2 },
-        { chapter: 2, q: "૧૯. કસોટીના સંચાલનની એકવિધતા શું કહેવાય?", opts: ["(a) વસ્તુલક્ષિતા", "(b) માનાંકો", "(c) વિશ્વસનીયતા", "(d) પ્રમાણિતતા"], ans: 3 },
-        { chapter: 2, q: "૨૦. ‘મનોવૈજ્ઞાનિક કસોટીનાં પરિણામોનું સાતત્ય’ એટલે શું?", opts: ["(a) માનાંકો", "(b) વસ્તુલક્ષિતા", "(c) વિશ્વસનીયતા", "(d) યથાર્થતા"], ans: 2 },
-
-        // પ્રકરણ ૩ (21-30)
-        { chapter: 3, q: "૨૧. સંશોધનના કોઈ પણ પ્રકારના પૂર્વગ્રહ, મનોવલણરહિત મૂલ્યાંકનને શું કહે છે?", opts: ["(a) યથાર્થતા", "(b) વસ્તુલક્ષિતા", "(c) માનાંકો", "(d) વિશ્વસનીયતા"], ans: 1 },
-        { chapter: 3, q: "૨૨. કઈ પદ્ધતિ ‘અનિયંત્રિત નિરીક્ષણ પદ્ધતિ’ તરીકે ઓળખાય છે?", opts: ["(a) સહભાગી નિરીક્ષણ", "(b) તુલનાત્મક નિરીક્ષણ", "(c) વ્યવસ્થિત નિરીક્ષણ", "(d) કુદરતી નિરીક્ષણ"], ans: 3 },
-        { chapter: 3, q: "૨૩. રોગપ્રતિકારક રસીઓની લાંબા ગાળાની અસરો ચકાસવા માટે કઈ પદ્ધતિનો ઉપયોગ થાય છે?", opts: ["(a) સમકાલીન", "(b) દીર્ઘકાલીન", "(c) તુલનાત્મક", "(d) ક્ષેત્રનિરીક્ષણ"], ans: 1 },
-        { chapter: 3, q: "૨૪. કોઈ પ્રદેશમાં થયેલા પૂર પ્રકોપનું નિરીક્ષણ કરવા કઈ પદ્ધતિનો ઉપયોગ થાય છે?", opts: ["(a) સહભાગી નિરીક્ષણ", "(b) તુલનાત્મક નિરીક્ષણ", "(c) કુદરતી નિરીક્ષણ", "(d) ક્ષેત્ર નિરીક્ષણ"], ans: 3 },
-        { chapter: 3, q: "૨૫. નીચેનામાંથી અયોગ્ય વિધાન પસંદ કરો: (I) સમકાલીન અભ્યાસને અનુપ્રસ્થ છેદીય અભ્યાસ કહે છે. (II) દીર્ઘકાલીન અભ્યાસને અનુપ્રસ્થ છેદીય કહે છે.", opts: ["(a) I અને III", "(b) II અને III", "(c) માત્ર II", "(d) I, II અને III"], ans: 2 },
-        { chapter: 3, q: "૨૬. કોના મતે, “મનોવૈજ્ઞાનિક કસોટી વ્યક્તિના વર્તનના નમૂનાનું વસ્તુલક્ષી માપન કરે છે”?", opts: ["(a) ટિશનર", "(b) બીને", "(c) અનાસ્ટસી", "(d) યંગ"], ans: 2 },
-        { chapter: 3, q: "૨૭. મનોવૈજ્ઞાનિક કસોટીનું સમધારણ કે સરેરાશ કાર્ય એટલે શું?", opts: ["(a) માનાંકો", "(b) વસ્તુલક્ષિતા", "(c) વિશ્વસનીયતા", "(d) યથાર્થતા"], ans: 0 },
-        { chapter: 3, q: "૨૮. કોના મતે, “મનોવૈજ્ઞાનિક કસોટી એટલે બે કે તેથી વધુ વ્યક્તિઓના વર્તનનું તુલનાત્મક માપન કરવાની રીત”?", opts: ["(a) અનાસ્ટસી", "(b) ક્રોનબેક", "(c) બીને", "(d) ટિશનર"], ans: 1 },
-        { chapter: 3, q: "૨૯. નીચેનાં પૈકી કયાં લક્ષણોનો સમાવેશ પ્રયોગ લક્ષણોમાં થતો નથી?", opts: ["(a) વસ્તુલક્ષિતા", "(b) નિયંત્રણ", "(c) વિશ્વસનીયતા", "(d) પરિવર્તન"], ans: 2 },
-        { chapter: 3, q: "૩૦. એક ઢોંગી બાબાની પોલ ખોલવી હોય તો તેના પરમ શિષ્ય બની કઈ પદ્ધતિથી માહિતી મેળવી શકાય?", opts: ["(a) કુદરતી", "(b) ક્ષેત્ર", "(c) સહભાગી", "(d) તુલનાત્મક"], ans: 2 },
-
-        // પ્રકરણ ૪ (31-40)
-        { chapter: 4, q: "૩૧. મનોવિજ્ઞાનના હાર્દ તરીકે કઈ પદ્ધતિ ઓળખાય છે?", opts: ["(a) વ્યક્તિ ઇતિહાસ", "(b) પ્રયોગ", "(c) ક્ષેત્ર", "(d) કુદરતી"], ans: 1 },
-        { chapter: 4, q: "૩૨. દીર્ઘકાલીન પદ્ધતિમાં એક સમૂહ પર સતત કેટલો સમય નિરીક્ષણ થાય છે?", opts: ["(a) 5 થી 10 વર્ષ", "(b) 10 થી 20 વર્ષ", "(c) 5 થી 25 વર્ષ કે તેથી વધુ", "(d) કોઈ મર્યાદા નથી"], ans: 1 },
-        { chapter: 4, q: "૩૩. વન-વે સ્ક્રીન, ટેપરેકોર્ડર, કેમેરાનો ઉપયોગ કઈ નિરીક્ષણ પદ્ધતિમાં થાય છે?", opts: ["(a) ક્ષેત્ર નિરીક્ષણ", "(b) તુલનાત્મક", "(c) વ્યવસ્થિત", "(d) મુલાકાત"], ans: 2 },
-        { chapter: 4, q: "૩૪. નીચેનામાંથી કયું લક્ષણ મનોવૈજ્ઞાનિક કસોટીનાં લક્ષણો પૈકીનું નથી?", opts: ["(a) વિશ્વસનીયતા", "(b) યથાર્થતા", "(c) નિયંત્રણ", "(d) વસ્તુલક્ષિતા"], ans: 2 },
-        { chapter: 4, q: "૩૫. પ્રમાણિત કસોટી જે આશયથી તૈયાર કરાઈ હોય તેનું જ માપન કરે તો તે કયું લક્ષણ ગણાય?", opts: ["(a) અનાત્મલક્ષીપણું", "(b) વિશ્વસનીયતા", "(c) યથાર્થતા", "(d) ભેદકારકતા"], ans: 2 },
-        { chapter: 4, q: "૩૬. એક વૈયક્તિક વિષયના તલસ્પર્શી નિરીક્ષણને શું કહેવાય છે?", opts: ["(a) વિશ્લેષણાત્મક અભ્યાસ", "(b) વર્તન અભ્યાસ", "(c) અંગત વિવેચન", "(d) વ્યક્તિ અભ્યાસ"], ans: 3 },
-        { chapter: 4, q: "૩૭. મનોવૈજ્ઞાનિક કસોટીમાં પરિણામોનું સાતત્ય એટલે શું?", opts: ["(a) યથાર્થતા", "(b) વિશ્વસનીયતા", "(c) માનાંકો", "(d) વસ્તુલક્ષિતા"], ans: 1 },
-        { chapter: 4, q: "૩૮. કઈ પદ્ધતિમાં વ્યક્તિના ભૂતકાળ અને વર્તમાન પરથી ભવિષ્યના વર્તનની આગાહી કરાય છે?", opts: ["(a) દીર્ઘકાલીન", "(b) વ્યક્તિ ઇતિહાસ", "(c) સમકાલીન", "(d) નિરીક્ષણ"], ans: 1 },
-        { chapter: 4, q: "૩૯. કઈ પદ્ધતિમાં વ્યક્તિ 'સાચું' કહે છે કે 'સારું' તે જાણી શકાતું નથી?", opts: ["(a) આંતરનિરીક્ષણ", "(b) સહભાગી", "(c) કુદરતી", "(d) ક્ષેત્ર નિરીક્ષણ"], ans: 0 },
-        { chapter: 4, q: "૪૦. નીચેનામાંથી કયો વિભાગ દીર્ઘકાલીન અભ્યાસ સાથે જોડાયેલ નથી?", opts: ["(a) રૂબરૂ મોડામોઢની વાતચીત", "(b) અનુપ્રસ્થ છેદીય અભ્યાસ", "(c) અનિયંત્રિત નિરીક્ષણ", "(d) લાંબા સમયનો અભ્યાસ"], ans: 1 }
-    ];
-
-    let pCurrentList = [];
-    let pIndex = 0;
-    let pAnswers = {};
-
-    function startPsychQuiz(chapter) {
-        pCurrentList = psychQuestions.filter(q => q.chapter === chapter);
-        pIndex = 0;
-        pAnswers = {};
-        
-        document.getElementById('psych-quiz-area').style.display = 'block';
-        document.getElementById('psych-result-area').style.display = 'none';
-        document.getElementById('p-total-q').innerText = pCurrentList.length;
-        
-        showScreen('psych-quiz');
-        renderPsychQuestion();
-    }
-
-    function renderPsychQuestion() {
-        const qData = pCurrentList[pIndex];
-        document.getElementById('p-q-num').innerText = pIndex + 1;
-        document.getElementById('p-question').innerText = qData.q;
-        
-        const optsArea = document.getElementById('p-options');
-        optsArea.innerHTML = '';
-        
-        let answeredIdx = pAnswers[pIndex];
-
-        qData.opts.forEach((opt, idx) => {
-            const btn = document.createElement('button');
-            btn.innerText = opt;
-            btn.style.width = "100%"; btn.style.padding = "15px"; btn.style.marginBottom = "10px";
-            btn.style.border = "2px solid var(--border-color)"; btn.style.background = "#fff";
-            btn.style.borderRadius = "8px"; btn.style.textAlign = "left"; btn.style.fontSize = "18px";
-            btn.style.cursor = "pointer"; btn.style.fontWeight = "600";
-            
-            if (answeredIdx !== undefined) {
-                btn.disabled = true;
-                if (idx === qData.ans) {
-                    btn.style.background = "var(--correct-bg)"; btn.style.borderColor = "var(--correct-border)"; btn.style.color = "var(--correct-text)";
-                } else if (idx === answeredIdx && answeredIdx !== qData.ans) {
-                    btn.style.background = "var(--wrong-bg)"; btn.style.borderColor = "var(--wrong-border)"; btn.style.color = "var(--wrong-text)";
-                }
-            } else {
-                btn.onclick = () => selectPsychAnswer(idx);
-            }
-            optsArea.appendChild(btn);
-        });
-
-        document.getElementById('p-prev-btn').style.display = pIndex > 0 ? "inline-flex" : "none";
-        document.getElementById('p-next-btn').style.display = answeredIdx !== undefined ? "inline-flex" : "none";
-        
-        if (pIndex === pCurrentList.length - 1) {
-            document.getElementById('p-next-btn').innerHTML = 'પરિણામ જુઓ <i class="fa-solid fa-trophy"></i>';
-        } else {
-            document.getElementById('p-next-btn').innerHTML = 'આગળ <i class="fa-solid fa-arrow-right"></i>';
-        }
-        updatePsychScore();
-    }
-
-    function selectPsychAnswer(idx) {
-        pAnswers[pIndex] = idx;
-        renderPsychQuestion();
-    }
-
-    function updatePsychScore() {
-        let score = 0;
-        for (let i in pAnswers) {
-            if (pAnswers[i] === pCurrentList[i].ans) score++;
-        }
-        document.getElementById('p-live-score').innerText = score;
-        return score;
-    }
-
-    function nextPsychQuestion() {
-        if (pIndex < pCurrentList.length - 1) {
-            pIndex++;
-            renderPsychQuestion();
-        } else {
-            // Show result
-            document.getElementById('psych-quiz-area').style.display = 'none';
-            document.getElementById('psych-result-area').style.display = 'block';
-            let finalScore = updatePsychScore();
-            document.getElementById('p-final-score').innerText = finalScore + " / " + pCurrentList.length;
-            
-            let percent = (finalScore / pCurrentList.length) * 100;
-            const fb = document.getElementById('p-feedback');
-            fb.style.background = percent >= 80 ? "var(--correct-bg)" : (percent >= 50 ? "#fff3cd" : "var(--wrong-bg)");
-            fb.style.color = percent >= 80 ? "var(--correct-text)" : (percent >= 50 ? "#856404" : "var(--wrong-text)");
-            fb.innerText = percent >= 80 ? "અદ્ભુત તૈયારી! 🌟" : (percent >= 50 ? "સારી પ્રગતિ! 👍" : "વધુ મહેનતની જરૂર છે 💪");
-        }
-    }
-
-    function prevPsychQuestion() {
-        if (pIndex > 0) { pIndex--; renderPsychQuestion(); }
-    }
-
-    // --- 3. Educational Math Games Logic ---
-    const gujDigits = ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯'];
-    function toGuj(num) { return num.toString().split('').map(d => (d>='0'&&d<='9') ? gujDigits[d] : d).join(''); }
-    
-    let mQuestions = [];
-    let mIndex = 0;
-    let mScore = 0;
-    let mAnswered = false;
-
-    function generateMathQuestions(type) {
-        let qs = [];
-        for(let i=0; i<10; i++) {
-            let qStr = "", ans = 0, reason = "", opts = [];
-            if(type === 'add') {
-                let a = Math.floor(Math.random() * 40) + 10;
-                let b = Math.floor(Math.random() * 40) + 10;
-                ans = a + b;
-                qStr = `${toGuj(a)} + ${toGuj(b)} = ?`;
-                let aRound = Math.floor(a/10)*10, aRem = a%10, bRound = Math.floor(b/10)*10, bRem = b%10;
-                reason = `કારણ: (${toGuj(aRound)} + ${toGuj(bRound)} = ${toGuj(aRound+bRound)}) અને (${toGuj(aRem)} + ${toGuj(bRem)} = ${toGuj(aRem+bRem)}), તેથી કુલ ${toGuj(ans)} થાય.`;
-            } 
-            else if(type === 'sub') {
-                let a = Math.floor(Math.random() * 50) + 50;
-                let b = Math.floor(Math.random() * 30) + 10;
-                ans = a - b;
-                qStr = `${toGuj(a)} - ${toGuj(b)} = ?`;
-                let bRound = Math.floor(b/10)*10, bRem = b%10;
-                reason = `કારણ: પહેલા ${toGuj(a)} માંથી ${toGuj(bRound)} બાદ કરો = ${toGuj(a-bRound)}. પછી તેમાંથી ${toGuj(bRem)} બાદ કરતા ${toGuj(ans)} વધે.`;
-            }
-            else if(type === 'mul') {
-                let a = Math.floor(Math.random() * 10) + 2;
-                let b = Math.floor(Math.random() * 9) + 2;
-                ans = a * b;
-                qStr = `${toGuj(a)} × ${toGuj(b)} = ?`;
-                reason = `કારણ: ${toGuj(a)} નો ઘડિયો ${toGuj(b)} વાર બોલતા: ${toGuj(a)} × ${toGuj(b)} = ${toGuj(ans)} થાય.`;
-            }
-            else if(type === 'div') {
-                let b = Math.floor(Math.random() * 9) + 2;
-                ans = Math.floor(Math.random() * 10) + 2;
-                let a = b * ans;
-                qStr = `${toGuj(a)} ÷ ${toGuj(b)} = ?`;
-                reason = `કારણ: ${toGuj(b)} ના ઘડિયામાં ${toGuj(ans)} વખત આવતો અંક ${toGuj(a)} છે (${toGuj(b)} × ${toGuj(ans)} = ${toGuj(a)}).`;
-            }
-
-            opts.push(ans);
-            while(opts.length < 4) {
-                let fake = ans + (Math.floor(Math.random() * 10) - 5);
-                if(fake !== ans && fake > 0 && !opts.includes(fake)) opts.push(fake);
-            }
-            opts.sort(() => Math.random() - 0.5);
-            
-            qs.push({ q: qStr, ans: ans, opts: opts, reason: reason });
-        }
-        return qs;
-    }
-
-    function startMathGame(type) {
-        mQuestions = generateMathQuestions(type);
-        mIndex = 0;
-        mScore = 0;
-        document.getElementById('games-menu').style.display = 'none';
-        document.getElementById('math-quiz-area').style.display = 'block';
-        document.getElementById('math-result-area').style.display = 'none';
-        renderMathQuestion();
-    }
-
-    function closeMathGame() {
-        document.getElementById('games-menu').style.display = 'grid';
-        document.getElementById('math-quiz-area').style.display = 'none';
-        document.getElementById('math-result-area').style.display = 'none';
-    }
-
-    function renderMathQuestion() {
-        mAnswered = false;
-        const qData = mQuestions[mIndex];
-        document.getElementById('m-q-num').innerText = toGuj(mIndex + 1);
-        document.getElementById('m-score').innerText = toGuj(mScore);
-        document.getElementById('m-question').innerText = qData.q;
-        
-        const optsArea = document.getElementById('m-options');
-        optsArea.innerHTML = '';
-        
-        qData.opts.forEach(optVal => {
-            const btn = document.createElement('button');
-            btn.className = 'math-opt-btn';
-            btn.innerText = toGuj(optVal);
-            btn.onclick = (e) => selectMathAnswer(e, optVal, qData.ans);
-            optsArea.appendChild(btn);
-        });
-
-        document.getElementById('m-reason').style.display = 'none';
-        document.getElementById('m-reason').innerText = qData.reason;
-        document.getElementById('m-next-btn').style.display = 'none';
-    }
-
-    function selectMathAnswer(e, selected, correct) {
-        if(mAnswered) return;
-        mAnswered = true;
-        
-        if(selected === correct) {
-            e.target.classList.add('correct');
-            mScore++;
-            document.getElementById('m-score').innerText = toGuj(mScore);
-        } else {
-            e.target.classList.add('wrong');
-            Array.from(document.getElementById('m-options').children).forEach(btn => {
-                if(btn.innerText === toGuj(correct)) btn.classList.add('correct');
-            });
-        }
-
-        document.getElementById('m-reason').style.display = 'block';
-        document.getElementById('m-next-btn').style.display = 'inline-flex';
-        
-        if (mIndex === 9) document.getElementById('m-next-btn').innerText = 'પરિણામ જુઓ';
-        else document.getElementById('m-next-btn').innerHTML = 'આગળ વધો <i class="fa-solid fa-arrow-right"></i>';
-    }
-
-    function nextMathQuestion() {
-        if(mIndex < 9) {
-            mIndex++;
-            renderMathQuestion();
-        } else {
-            document.getElementById('math-quiz-area').style.display = 'none';
-            document.getElementById('math-result-area').style.display = 'block';
-            document.getElementById('m-final-score').innerText = toGuj(mScore);
-        }
-    }
-
-    // --- 4. Formspree Submission Logic ---
-    const suggestionForm = document.getElementById("suggestionForm");
-    const successMsg = document.getElementById("form-success-msg");
-    const submitBtn = document.getElementById("submitBtnText");
-
-    suggestionForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const actionUrl = suggestionForm.getAttribute("action");
-
-        submitBtn.innerHTML = 'મોકલાઈ રહ્યું છે...';
-        submitBtn.disabled = true;
-
-        const formData = new FormData(suggestionForm);
-
-        fetch(actionUrl, {
-            method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                successMsg.style.display = "block";
-                suggestionForm.reset();
-                submitBtn.innerHTML = 'સંદેશ મોકલો <i class="fa-solid fa-paper-plane"></i>';
-                submitBtn.disabled = false;
-                setTimeout(() => { successMsg.style.display = "none"; }, 5000);
-            } else {
-                alert("માફ કરશો, કોઈ ભૂલ આવી છે.");
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'સંદેશ મોકલો <i class="fa-solid fa-paper-plane"></i>';
-            }
-        }).catch(error => {
-            alert("ઇન્ટરનેટ કનેક્શનમાં ભૂલ છે.");
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'સંદેશ મોકલો <i class="fa-solid fa-paper-plane"></i>';
-        });
-    });
-
-</script>
+  <div class="container footer-bottom">
+    <span>© <span data-year></span> Gyan Shiksha. All rights reserved.</span>
+    <span>Independent educational website • Not a government website</span>
+  </div>
+</footer>
 
 </body>
 </html>
