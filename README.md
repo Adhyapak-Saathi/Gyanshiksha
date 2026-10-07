@@ -120,3 +120,12 @@ Quiz Web App:
 
 ### Manual repository cleanup still recommended
 The GitHub repository description still references old Psychology/TAT content and the repository is still a fork. These are repository-level settings, not website-code defects.
+
+## V3.10 Professional UX Polish
+- Refined navigation hierarchy and made Quiz the primary action
+- Replaced generic stock thumbnails on Home/Blog with branded visual blocks
+- Kept the approved Home hero image while reducing unnecessary third-party image requests
+- Improved Blog card consistency, visual identity and reading hierarchy
+- Made Quiz Focus Mode the clearest primary start action while preserving the inline quiz
+- Improved Games start state, mobile nav overlay and hover/focus behavior
+- Kept the patch focused on live UX without changing policy/content architecture
