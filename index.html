@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <title>Home | Gyan Shiksha</title>
   <meta name="description" content="Gujarati Medium Std. 6–12 school learning portal with board exam resources, quiz, games and updates.">
   <link rel="canonical" href="https://adhyapak-saathi.github.io/Gyanshiksha/">
@@ -28,7 +29,7 @@
 <header class="site-header">
   <div class="utility-bar">
     <div class="container utility-inner">
-      <span>support@gyanshiksha.in</span>
+      <span>Gujarati Medium • Std. 6–12</span>
       <nav aria-label="Utility navigation">
         <a href="board-exam.html">Board Exam</a>
         <a href="study-plan.html">Study Plan</a>
@@ -76,11 +77,12 @@
       <h2>ગુજરાતના વિદ્યાર્થીઓ માટે એક વિશ્વસનીય શૈક્ષણિક પ્લેટફોર્મ</h2>
       <p>Study Material, Online Quiz, Educational Games, Board Exam resources, Model Papers અને useful updates — એક જ જગ્યાએ.</p>
 
-      <form class="search-box" action="study-material.html" method="get" role="search">
+      <form class="search-box" action="study-material.html" method="get" role="search" data-site-search-form>
         <label class="sr-only" for="site-search">Search learning resources</label>
-        <input id="site-search" name="q" type="search" placeholder="Search study material, quiz, model paper...">
+        <input id="site-search" name="q" type="search" autocomplete="off" inputmode="search" placeholder="Search study material, quiz, model paper..." aria-controls="site-search-results" aria-expanded="false">
         <button type="submit">Search</button>
       </form>
+      <div id="site-search-results" class="search-results" data-site-search-results hidden aria-live="polite"></div>
 
       <div class="quick-tags" aria-label="Quick links">
         <a href="board-exam.html">Std. 10 Board</a>
@@ -88,6 +90,7 @@
         <a href="study-material.html">Model Papers</a>
         <a href="quiz.html">Online Quiz</a>
       </div>
+      <p class="hero-note">Free learning resources • Original-first content • Mobile friendly</p>
     </div>
 
     <aside class="hero-panel" aria-label="Portal highlights">
@@ -101,16 +104,6 @@
         <li><span>📈</span> Study Guidance</li>
       </ul>
     </aside>
-  </div>
-</section>
-
-<!-- AdSense placeholder only. Real script/client IDs will be added after approval. -->
-<section class="ad-wrap" aria-label="Advertisement placeholder">
-  <div class="container">
-    <div class="ad-slot ad-slot-wide" data-ad-slot="home-top">
-      <span>Advertisement</span>
-      <small>Reserved for future Google AdSense</small>
-    </div>
   </div>
 </section>
 
@@ -145,6 +138,16 @@
         <div><strong>Learning Games</strong><small>Practice with fun</small></div>
         <b>→</b>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- AdSense placeholder only. Real script/client IDs will be added after approval. -->
+<section class="ad-wrap" aria-label="Advertisement placeholder">
+  <div class="container">
+    <div class="ad-slot ad-slot-wide" data-ad-slot="home-mid">
+      <span>Advertisement</span>
+      <small>Reserved for future Google AdSense</small>
     </div>
   </div>
 </section>
@@ -214,6 +217,7 @@
 </section>
 
   </main>
+<noscript><div class="noscript-note">For full navigation features, please enable JavaScript. Core pages remain accessible without it.</div></noscript>
 
 <footer class="site-footer">
   <div class="container footer-grid">
