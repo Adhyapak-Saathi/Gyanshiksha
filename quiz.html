@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,follow">
-  <title>Quiz | Gyan Shiksha</title>
-  <meta name="description" content="Online quiz and practice for Gujarati Medium Std. 6–12.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <title>Online Quiz | Gujarati Medium Std. 6–12 | Gyan Shiksha</title>
+  <meta name="description" content="Gujarati Medium Std. 6–12 માટે chapter-wise online quiz, instant practice અને exam preparation માટે Gyan Shiksha Quiz.">
   <link rel="canonical" href="https://adhyapak-saathi.github.io/Gyanshiksha/quiz.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Gyan Shiksha">
-  <meta property="og:title" content="Quiz | Gyan Shiksha">
-  <meta property="og:description" content="Online quiz and practice for Gujarati Medium Std. 6–12.">
+  <meta property="og:title" content="Online Quiz | Gyan Shiksha">
+  <meta property="og:description" content="Gujarati Medium Std. 6–12 માટે chapter-wise online quiz અને exam practice.">
   <meta property="og:url" content="https://adhyapak-saathi.github.io/Gyanshiksha/quiz.html">
   <meta property="og:image" content="https://adhyapak-saathi.github.io/Gyanshiksha/assets/img/og-cover.svg">
   <meta name="theme-color" content="#0c4f8a">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-src https://script.google.com https://script.googleusercontent.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
@@ -68,17 +68,100 @@
 
   <main id="main">
 
-<section class="page-hero"><div class="container narrow"><span class="eyebrow">Online Quiz</span><h1>ક્વિઝ અને Practice</h1><p>તમારી Google Apps Script quiz system પછી અહીં integrate કરી શકીએ છીએ.</p></div></section>
-<section class="section"><div class="container">
-  <div class="notice-box"><strong>Integration Ready:</strong> Google Apps Script quiz link/API મળ્યા પછી આ pageને live quiz system સાથે જોડવામાં આવશે.</div>
-  <div class="resource-grid">
-    <article class="resource-card"><span class="pill">Demo</span><h2>Chapter Quiz</h2><p>MCQ, result, explanation અને retry માટે જગ્યા.</p></article>
-    <article class="resource-card"><span class="pill">Board</span><h2>Board Practice Quiz</h2><p>Std. 10/12 માટે focused practice.</p></article>
-    <article class="resource-card"><span class="pill">Revision</span><h2>Quick Test</h2><p>10-question revision format.</p></article>
+<section class="page-hero quiz-page-hero">
+  <div class="container narrow">
+    <span class="eyebrow">Quiz Saathi</span>
+    <h1>Online Quiz & Practice</h1>
+    <p>Gujarati Medium Std. 6–12 માટે chapter-wise પ્રશ્નો, difficulty level અને explanation સાથે practice કરો.</p>
+    <div class="hero-badges" aria-label="Quiz features">
+      <span>Chapter-wise</span>
+      <span>Difficulty Levels</span>
+      <span>Answer Explanation</span>
+      <span>Board Practice</span>
+    </div>
   </div>
-</div></section>
+</section>
 
-  </main>
+<section class="section compact-top">
+  <div class="container">
+    <div class="quiz-intro-grid">
+      <section class="content-card">
+        <span class="eyebrow">How it works</span>
+        <h2>ક્વિઝ શરૂ કરતાં પહેલાં</h2>
+        <ol class="number-list">
+          <li><span>1</span><div><strong>Class & Subject પસંદ કરો</strong><p>તમારા ધોરણ અને વિષય મુજબ ઉપલબ્ધ quiz પસંદ કરો.</p></div></li>
+          <li><span>2</span><div><strong>Chapter & Level પસંદ કરો</strong><p>Chapter, difficulty અને ઉપલબ્ધ પ્રશ્નોની સંખ્યા પ્રમાણે test બનાવો.</p></div></li>
+          <li><span>3</span><div><strong>Attempt કરો</strong><p>દરેક પ્રશ્ન ધ્યાનથી વાંચો અને જવાબ પસંદ કરો.</p></div></li>
+          <li><span>4</span><div><strong>Explanationથી શીખો</strong><p>Result પછી સાચા જવાબ અને સમજુતીનો ઉપયોગ revision માટે કરો.</p></div></li>
+        </ol>
+      </section>
+
+      <aside class="content-card quiz-privacy-card">
+        <span class="eyebrow">Privacy Note</span>
+        <h2>વિદ્યાર્થીની માહિતી</h2>
+        <p>ક્વિઝમાં જે માહિતી માંગવામાં આવે તે માત્ર જરૂરી હોય એટલી જ આપો. Sensitive personal information, phone number, address અથવા password ક્યારેય દાખલ ન કરો.</p>
+        <p class="small-note">Quiz backend હાલમાં Google Apps Script / Google Sheets પર ચાલે છે.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-app-section" aria-labelledby="quiz-app-heading">
+  <div class="container">
+    <div class="quiz-app-toolbar">
+      <div>
+        <span class="eyebrow">Live Quiz</span>
+        <h2 id="quiz-app-heading">Quiz Saathi</h2>
+      </div>
+      <a class="btn btn-soft" href="https://script.google.com/macros/s/AKfycbxM88Z2cZ1gVuXFU22R1ebiKmZywSqxPyr_VY669V_scB0eEdahGdSsRJn4AVzqQY4LXQ/exec" target="_blank" rel="noopener noreferrer">Open Full Screen ↗</a>
+    </div>
+
+    <div class="quiz-embed-shell">
+      <iframe
+        class="quiz-embed"
+        src="https://script.google.com/macros/s/AKfycbxM88Z2cZ1gVuXFU22R1ebiKmZywSqxPyr_VY669V_scB0eEdahGdSsRJn4AVzqQY4LXQ/exec"
+        title="Gyan Shiksha Quiz Saathi"
+        loading="eager"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
+
+    <noscript>
+      <div class="notice-box">Quiz ચલાવવા JavaScript જરૂરી છે. <a href="https://script.google.com/macros/s/AKfycbxM88Z2cZ1gVuXFU22R1ebiKmZywSqxPyr_VY669V_scB0eEdahGdSsRJn4AVzqQY4LXQ/exec" target="_blank" rel="noopener noreferrer">Quiz full screenમાં ખોલો.</a></div>
+    </noscript>
+  </div>
+</section>
+
+<section class="ad-wrap" aria-label="Advertisement placeholder">
+  <div class="container">
+    <div class="ad-slot ad-slot-wide" data-ad-slot="quiz-after-app">
+      <span>Advertisement</span>
+      <small>Reserved for future Google AdSense — quiz controlsથી અલગ રાખેલ.</small>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="split-layout">
+      <section class="content-card">
+        <span class="eyebrow">Practice Better</span>
+        <h2>Score કરતાં explanation વધારે મહત્વનું</h2>
+        <p>ખોટો જવાબ આવ્યો હોય તો માત્ર score ન જુઓ. explanation વાંચો, chapter ફરી revise કરો અને પછી quiz ફરી attempt કરો.</p>
+      </section>
+
+      <aside class="content-card accent-card">
+        <span class="eyebrow">Board Focus</span>
+        <h2>Std. 10 & 12</h2>
+        <p>Board-oriented question banks અને chapter-wise practice વધતાં અહીંથી સીધા related study resources જોડવામાં આવશે.</p>
+        <a class="btn btn-primary" href="board-exam.html">Board Exam Hub</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer class="site-footer">
   <div class="container footer-grid">

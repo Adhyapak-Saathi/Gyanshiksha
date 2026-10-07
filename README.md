@@ -44,3 +44,14 @@ Homepage now uses:
 - Added AdSense placeholders only after meaningful content blocks
 - Marked unfinished content pages `noindex,follow` until real content is added
 - Removed fake placeholder email from shared utility bars
+
+## V3.3
+- Integrated existing Google Apps Script Quiz Saathi web app into `quiz.html`
+- Added full-screen fallback link
+- Updated CSP `frame-src` for Google Apps Script
+- Added privacy guidance before the embedded quiz
+- Reserved AdSense space after the quiz instead of near answer controls
+- Quiz page is now indexable because it provides functional learning content
+
+Quiz Web App:
+`https://script.google.com/macros/s/AKfycbxM88Z2cZ1gVuXFU22R1ebiKmZywSqxPyr_VY669V_scB0eEdahGdSsRJn4AVzqQY4LXQ/exec`

@@ -135,3 +135,33 @@ img{display:block;max-width:100%}a{color:inherit}button,input{font:inherit}
   .roadmap-grid,.learning-flow{grid-template-columns:1fr}
   .board-card-top{align-items:flex-start;flex-direction:column}
 }
+
+
+/* V3.3 — Quiz Saathi Integration */
+.quiz-page-hero{background:linear-gradient(135deg,#eaf4ff 0%,#f7f4ff 58%,#fff6e8 100%)}
+.quiz-intro-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;align-items:start}
+.number-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:14px}
+.number-list li{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start}
+.number-list li>span{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--navy);color:#fff;font-weight:950}
+.number-list strong{display:block;margin-bottom:2px}
+.number-list p{margin:0;color:var(--muted);font-size:.9rem}
+.quiz-privacy-card{border-top:4px solid var(--green)}
+.small-note{font-size:.82rem}
+.quiz-app-section{padding:18px 0 24px}
+.quiz-app-toolbar{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:14px}
+.quiz-app-toolbar h2{margin:.1em 0 0;font-size:1.7rem}
+.btn-soft{background:#fff;border-color:#cbd9e7;color:var(--blue)}
+.quiz-embed-shell{background:#eaf0f7;border:1px solid #d4dfeb;border-radius:22px;padding:10px;box-shadow:var(--shadow);overflow:hidden}
+.quiz-embed{display:block;width:100%;height:980px;border:0;border-radius:14px;background:#fff}
+.quiz-embed:focus-visible{outline:3px solid #ffb949;outline-offset:3px}
+
+@media(max-width:900px){
+  .quiz-intro-grid{grid-template-columns:1fr}
+  .quiz-embed{height:1020px}
+}
+@media(max-width:700px){
+  .quiz-app-toolbar{align-items:flex-start;flex-direction:column}
+  .quiz-app-toolbar .btn{width:100%}
+  .quiz-embed-shell{padding:5px;border-radius:16px}
+  .quiz-embed{height:1120px;border-radius:11px}
+}
