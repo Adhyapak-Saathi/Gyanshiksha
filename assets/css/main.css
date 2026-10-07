@@ -249,3 +249,13 @@ body:not(.ads-active) .ad-wrap{display:none}
 .contact-card h2{margin:.2em 0}
 .contact-card p{color:var(--muted)}
 @media(max-width:850px){.contact-grid{grid-template-columns:1fr}}
+
+
+/* V3.7 — Launch content cleanup */
+.faq-list{display:grid;gap:10px}
+.faq-list details{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.faq-list summary{cursor:pointer;padding:17px 19px;font-weight:850;list-style:none}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";float:right;color:var(--blue);font-size:1.2rem}
+.faq-list details[open] summary::after{content:"−"}
+.faq-list details p{margin:0;padding:0 19px 18px;color:var(--muted)}

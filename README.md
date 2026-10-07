@@ -83,3 +83,11 @@ Quiz Web App:
 - Reduced hero image delivery size
 - Added async image decoding for lazy-loaded images
 - 404 page is explicitly `noindex`
+
+## V3.7
+- Removed remaining demo-style cards from the Home page
+- Expanded Study Plan into a useful indexable guide
+- Expanded FAQ with practical site/quiz/privacy/board questions
+- Marked Study Material `noindex,follow` until real notes/resources are available
+- Added root `security.txt` fallback because hidden `.well-known` folders may not upload through every browser workflow
+- Rebuilt sitemap after indexability changes
