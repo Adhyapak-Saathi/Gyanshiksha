@@ -55,3 +55,10 @@ Homepage now uses:
 
 Quiz Web App:
 `https://script.google.com/macros/s/AKfycbxM88Z2cZ1gVuXFU22R1ebiKmZywSqxPyr_VY669V_scB0eEdahGdSsRJn4AVzqQY4LXQ/exec`
+
+## V3.4
+- Kept existing Quiz Saathi student/school information flow unchanged
+- Added `quiz-player.html` so Focus Mode stays on a Gyan Shiksha URL
+- Removed the visible direct Google Apps Script full-screen link from the Quiz page
+- Updated Privacy Policy to disclose current Quiz Saathi data collection/storage flow
+- Google Apps Script remains the backend inside an iframe; the browser address stays on Gyan Shiksha
