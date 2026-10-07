@@ -8,13 +8,15 @@
 - [ ] Focus Mode keeps the browser on the Gyan Shiksha URL
 - [ ] Games complete 10 questions on mobile
 - [ ] Mobile menu opens/closes correctly
-- [ ] Contact email is correct
+- [ ] Confirm the public Contact email spelling is correct
 - [ ] No development/demo/ad placeholder is visible
 
 ## Immediately after going live
+- [ ] Update the GitHub repository description so it no longer mentions old Psychology/TAT content
 - [ ] Open Home, Quiz, Games, Board Exam, Study Plan, Blog on a real phone
 - [ ] Test one Quiz submission and confirm score reaches the Google Sheet
 - [ ] Run PageSpeed Insights on Home, Quiz and Blog
+- [ ] Verify `.well-known/security.txt` is reachable
 - [ ] Submit `sitemap.xml` to Google Search Console
 - [ ] Inspect key URLs in Search Console
 - [ ] Keep Study Material and Updates noindex until real resources/verified updates exist

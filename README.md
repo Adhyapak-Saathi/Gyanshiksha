@@ -17,8 +17,8 @@ GitHub Pages does not execute PHP or Python on the server.
 PHP/Python can be used for local/build automation or later on a backend host, but the live GitHub Pages website remains static.
 
 ## AdSense
-Ad placeholders are included, but **no AdSense script or publisher ID is included**.
-Real ad code should be added only after AdSense approval and final policy/privacy review.
+The current launch build contains **no AdSense script, publisher ID or visible ad placeholders**.
+Real ad code should be added only after AdSense approval/site setup and a final policy/privacy review. Keep Quiz iframe/Focus Mode ad-free unless the production configuration is separately reviewed.
 
 ## V3.1 Improvements
 - Removed placeholder Gyan Shiksha email until domain setup
@@ -31,12 +31,12 @@ Real ad code should be added only after AdSense approval and final policy/privac
 ## Current Home Page
 The grade row and subject row have been intentionally removed.
 Homepage now uses:
-1. Hero
-2. Ad placeholder
-3. Quick Access
-4. Board Exam Updates / Latest Updates / Study Guidance
-5. Bottom Ad placeholder
-6. Footer
+1. Hero + site search
+2. Quick Access
+3. Board Exam Focus / Practice Tools / Study Guidance
+4. Footer
+
+Only live/useful sections are promoted. Study Material and Updates remain `noindex` until real content is ready.
 
 ## V3.2
 - Expanded Board Exam page with useful evergreen preparation guidance
@@ -76,7 +76,7 @@ Quiz Web App:
 - Pre-approval AdSense cleanup: reserved ad containers are hidden until real AdSense approval/code is added
 - Removed the ad placeholder from the embedded Quiz page
 - Expanded About, Contact, Terms, Disclaimer and Editorial Policy for production trust
-- Temporary contact email: `janjani431@yahoo.com` until a dedicated Gyan Shiksha domain mailbox is created
+- Temporary contact email is configured until a dedicated Gyan Shiksha domain mailbox is created
 - Added PWA/mobile manifest
 - Added `.well-known/security.txt`
 - Added Unsplash preconnect on pages that use remote images
@@ -101,3 +101,22 @@ Quiz Web App:
 - Added three more original educational guides: Answer Writing, Maths Practice, Exam Week
 - Synchronized OpenGraph metadata and mobile manifest links
 - Added a stronger launch validator for sitemap/indexability/navigation/ad-placeholder checks
+
+## V3.9 Professional QA
+- Corrected remaining homepage/footer claims so the public site promotes only live resources
+- Made Home feature rows fully clickable and improved internal linking
+- Fixed heading hierarchy and several accessibility details
+- Improved menu keyboard behavior, search keyboard navigation and search coverage
+- Improved game ARIA state/progress behavior and private-mode storage resilience
+- Tightened CSP permissions; Google iframe access remains limited to Quiz pages
+- Lazy-loads the embedded Quiz on the standard Quiz page and removes unnecessary iframe permissions
+- Expanded Privacy Policy for browser localStorage, hosting/services and third-party media
+- Added article breadcrumbs, related-guide links, author/review metadata
+- Added raster social-sharing image, Twitter cards, PWA raster icons and app shortcuts
+- Removed unnecessary third-party preconnects and added image dimensions to reduce layout shift
+- Added a noindex Security page plus standard `.well-known/security.txt`
+- Expanded the launch validator with SEO, CSP, social metadata, content-integrity and accessibility-oriented checks
+- Added `QA-REPORT.md` and `tools/update_base_url.py` for the future custom-domain migration
+
+### Manual repository cleanup still recommended
+The GitHub repository description still references old Psychology/TAT content and the repository is still a fork. These are repository-level settings, not website-code defects.

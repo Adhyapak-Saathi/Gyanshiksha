@@ -4,16 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <title>Home | Gyan Shiksha</title>
-  <meta name="description" content="Gujarati Medium Std. 6–12 school learning portal with board exam resources, quiz, games and updates.">
+  <title>Gyan Shiksha | Gujarati Medium Std. 6–12 Quiz & Board Prep</title>
+  <meta name="description" content="Gujarati Medium Std. 6–12 માટે free online quiz, educational games, Std. 10–12 board exam guidance, study plans અને original study guides.">
   <link rel="canonical" href="https://adhyapak-saathi.github.io/Gyanshiksha/">
   <meta property="og:locale" content="gu_IN">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Gyan Shiksha">
-  <meta property="og:title" content="Home | Gyan Shiksha">
-  <meta property="og:description" content="Gujarati Medium Std. 6–12 school learning portal with board exam resources, quiz, games and updates.">
+  <meta property="og:title" content="Gyan Shiksha | Gujarati Medium Std. 6–12 Quiz &amp; Board Prep">
+  <meta property="og:description" content="Gujarati Medium Std. 6–12 માટે free online quiz, educational games, Std. 10–12 board exam guidance, study plans અને original study guides.">
   <meta property="og:url" content="https://adhyapak-saathi.github.io/Gyanshiksha/">
-  <meta property="og:image" content="https://adhyapak-saathi.github.io/Gyanshiksha/assets/img/og-cover.svg">
+  <meta property="og:image" content="https://adhyapak-saathi.github.io/Gyanshiksha/assets/img/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gyan Shiksha — Gujarati Medium Std. 6–12 learning portal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gyan Shiksha | Gujarati Medium Std. 6–12 Quiz &amp; Board Prep">
+  <meta name="twitter:description" content="Gujarati Medium Std. 6–12 માટે free online quiz, educational games, Std. 10–12 board exam guidance, study plans અને original study guides.">
+  <meta name="twitter:image" content="https://adhyapak-saathi.github.io/Gyanshiksha/assets/img/og-cover.png">
   <meta name="theme-color" content="#0c4f8a">
 
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
@@ -21,7 +29,9 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon-180.png">
   <meta name="mobile-web-app-capable" content="yes">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/main.css">
 
   <script defer src="assets/js/app.js"></script>
@@ -80,7 +90,7 @@
       <h2>ગુજરાતના વિદ્યાર્થીઓ માટે એક વિશ્વસનીય શૈક્ષણિક પ્લેટફોર્મ</h2>
       <p>Online Quiz, Educational Games, Board Exam guidance, Study Plans અને original study guides — એક જ જગ્યાએ.</p>
 
-      <form class="search-box" action="study-material.html" method="get" role="search" data-site-search-form>
+      <form class="search-box" action="index.html" method="get" role="search" data-site-search-form>
         <label class="sr-only" for="site-search">Search learning resources</label>
         <input id="site-search" name="q" type="search" autocomplete="off" inputmode="search" placeholder="Search quiz, games, board guide, revision..." aria-controls="site-search-results" aria-expanded="false">
         <button type="submit">Search</button>
@@ -99,12 +109,12 @@
     <aside class="hero-panel" aria-label="Portal highlights">
       <div class="quote-card">“જ્ઞાન એ ઉજ્જવળ ભવિષ્યનો મજબૂત પાયો છે”</div>
       <ul>
-        <li><span>📘</span> Gujarati Medium</li>
-        <li><span>🎯</span> Board Exam Focus</li>
-        <li><span>🧠</span> Quiz & Practice</li>
-        <li><span>🎮</span> Educational Games</li>
-        <li><span>📄</span> Model Papers</li>
-        <li><span>📈</span> Study Guidance</li>
+        <li><span aria-hidden="true">📘</span> Gujarati Medium</li>
+        <li><span aria-hidden="true">🎯</span> Board Exam Focus</li>
+        <li><span aria-hidden="true">🧠</span> Quiz & Practice</li>
+        <li><span aria-hidden="true">🎮</span> Educational Games</li>
+        <li><span aria-hidden="true">📚</span> Study Guides</li>
+        <li><span aria-hidden="true">📈</span> Study Guidance</li>
       </ul>
     </aside>
   </div>
@@ -122,22 +132,22 @@
 
     <div class="quick-grid">
       <a class="quick-card tone-blue" href="study-plan.html">
-        <span class="quick-icon">🗓️</span>
+        <span class="quick-icon" aria-hidden="true">🗓️</span>
         <div><strong>Study Plan</strong><small>Daily & weekly planning</small></div>
         <b>→</b>
       </a>
       <a class="quick-card tone-green" href="quiz.html">
-        <span class="quick-icon">🧠</span>
+        <span class="quick-icon" aria-hidden="true">🧠</span>
         <div><strong>Online Quiz</strong><small>Chapter-wise practice</small></div>
         <b>→</b>
       </a>
       <a class="quick-card tone-violet" href="board-exam.html">
-        <span class="quick-icon">🎓</span>
+        <span class="quick-icon" aria-hidden="true">🎓</span>
         <div><strong>Board Exam</strong><small>Std. 10 & 12 special</small></div>
         <b>→</b>
       </a>
       <a class="quick-card tone-orange" href="games.html">
-        <span class="quick-icon">🎮</span>
+        <span class="quick-icon" aria-hidden="true">🎮</span>
         <div><strong>Learning Games</strong><small>Practice with fun</small></div>
         <b>→</b>
       </a>
@@ -152,18 +162,18 @@
           <h2>Board Exam Focus</h2>
           <a href="board-exam.html">Open hub →</a>
         </div>
-        <article class="list-item">
-          <time>10</time>
+        <a class="list-item card-link" href="board-exam.html">
+          <span class="list-badge" aria-hidden="true">10</span>
           <div><strong>Std. 10 Board Preparation</strong><p>Revision roadmap, practice workflow અને final checklist.</p></div>
-        </article>
-        <article class="list-item">
-          <time>12</time>
+        </a>
+        <a class="list-item card-link" href="board-exam.html">
+          <span class="list-badge" aria-hidden="true">12</span>
           <div><strong>Std. 12 Board Preparation</strong><p>Focused planning, exam practice અને revision guidance.</p></div>
-        </article>
-        <article class="list-item">
-          <time>90</time>
+        </a>
+        <a class="list-item card-link" href="blog-board-study-plan.html">
+          <span class="list-badge" aria-hidden="true">90</span>
           <div><strong>90-Day Study Plan</strong><p>ત્રણ phasesમાં board preparation ગોઠવો.</p></div>
-        </article>
+        </a>
       </section>
 
       <section class="panel panel-blue">
@@ -171,14 +181,14 @@
           <h2>Practice Tools</h2>
           <a href="quiz.html">Start practice →</a>
         </div>
-        <article class="media-item">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=72" alt="Students studying in class">
+        <a class="media-item card-link" href="quiz.html">
+          <img loading="lazy" decoding="async" width="500" height="360" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&amp;fit=crop&amp;w=500&amp;q=72" alt="Students studying in class">
           <div><strong>Quiz Saathi</strong><p>Chapter-wise questions, difficulty level અને answer explanation સાથે practice.</p></div>
-        </article>
-        <article class="media-item">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=500&q=72" alt="Student practicing mathematics">
+        </a>
+        <a class="media-item card-link" href="games.html">
+          <img loading="lazy" decoding="async" width="500" height="360" src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&amp;fit=crop&amp;w=500&amp;q=72" alt="Student practicing mathematics">
           <div><strong>Educational Games</strong><p>Math Sprint, Percentage Challenge અને Simple Algebra.</p></div>
-        </article>
+        </a>
       </section>
 
       <section class="panel panel-green">
@@ -186,14 +196,14 @@
           <h2>Study Guidance</h2>
           <a href="blog.html">Read all →</a>
         </div>
-        <article class="media-item">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=72" alt="Student writing a study plan">
+        <a class="media-item card-link" href="blog-smart-revision.html">
+          <img loading="lazy" decoding="async" width="500" height="360" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&amp;fit=crop&amp;w=500&amp;q=72" alt="Student writing a study plan">
           <div><strong>Smart Revision</strong><p>Recall, weak-topic tracking અને self-checkથી revision સુધારો.</p></div>
-        </article>
-        <article class="media-item">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=500&q=72" alt="Student reading at a desk">
+        </a>
+        <a class="media-item card-link" href="blog-self-test.html">
+          <img loading="lazy" decoding="async" width="500" height="360" src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&amp;fit=crop&amp;w=500&amp;q=72" alt="Student reading at a desk">
           <div><strong>Self-Test Guide</strong><p>Quizનો ઉપયોગ માત્ર score નહીં, learning gaps શોધવા માટે કરો.</p></div>
-        </article>
+        </a>
       </section>
     </div>
   </div>
@@ -208,7 +218,7 @@
         <img src="assets/img/logo.svg" width="42" height="42" alt="">
         <div><strong>જ્ઞાનશિક્ષા</strong><span>ગુજરાતી માધ્યમ • Std. 6–12</span></div>
       </div>
-      <p>ગુજરાતી માધ્યમના વિદ્યાર્થીઓ માટે અભ્યાસ સામગ્રી, ક્વિઝ, બોર્ડ પરીક્ષા માર્ગદર્શન અને વિશ્વસનીય શૈક્ષણિક અપડેટ્સ.</p>
+      <p>ગુજરાતી માધ્યમ Std. 6–12 માટે Quiz, Educational Games, Board Exam guidance અને original study guides.</p>
     </div>
 
     <div>
