@@ -41,6 +41,8 @@
     });
   }
 
+  window.addEventListener("pagehide", closeNav);
+
   const current = location.pathname.split("/").pop() || "index.html";
   const activePage = current.startsWith("blog-") ? "blog.html" : current;
   document.querySelectorAll(".main-nav a").forEach(a => {
