@@ -372,3 +372,19 @@ body.nav-open{overflow:hidden}
   .quiz-intro-grid.quiz-intro-single{grid-template-columns:1fr}
   .quiz-app-toolbar-direct{padding:14px}
 }
+
+
+/* V3.14 — Home spacing + direct live quiz */
+.home-hero-title{display:grid;gap:.12em;line-height:1.08}
+.home-hero-title span{display:block}
+.quiz-direct-live{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.quiz-direct-live strong{display:block;font-size:1.15rem}
+.quiz-direct-live p{margin:.25rem 0 0;color:var(--muted)}
+.quiz-live-launch{flex:0 0 auto}
+.quiz-player-direct{min-height:calc(100vh - 84px);display:grid;place-items:center;text-align:center;align-content:center;gap:16px;padding:32px}
+.quiz-player-direct h1,.quiz-player-direct p{margin:0}
+@media(max-width:700px){
+  .home-hero-title{gap:.18em;line-height:1.12}
+  .quiz-direct-live{align-items:stretch;flex-direction:column;padding:18px}
+  .quiz-live-launch{width:100%;text-align:center}
+}
