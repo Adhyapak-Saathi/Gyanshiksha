@@ -71,3 +71,15 @@ Quiz Web App:
 - Improved Updates page but kept it `noindex` until verified current updates are available
 - Sitemap generator now excludes pages marked `noindex`
 - Search index now includes the new study-guidance articles
+
+## V3.6
+- Pre-approval AdSense cleanup: reserved ad containers are hidden until real AdSense approval/code is added
+- Removed the ad placeholder from the embedded Quiz page
+- Expanded About, Contact, Terms, Disclaimer and Editorial Policy for production trust
+- Temporary contact email: `janjani431@yahoo.com` until a dedicated Gyan Shiksha domain mailbox is created
+- Added PWA/mobile manifest
+- Added `.well-known/security.txt`
+- Added Unsplash preconnect on pages that use remote images
+- Reduced hero image delivery size
+- Added async image decoding for lazy-loaded images
+- 404 page is explicitly `noindex`
