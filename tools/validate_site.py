@@ -6,51 +6,117 @@ ROOT = Path(__file__).resolve().parents[1]
 errors = []
 html_pages = list(ROOT.glob("*.html"))
 
+def get_meta(text, name):
+    m = re.search(rf'<meta\s+name="{re.escape(name)}"\s+content="([^"]*)"', text, re.I)
+    return m.group(1) if m else ""
+
 def robots_for(text):
-    m = re.search(r'<meta\s+name="robots"\s+content="([^"]+)"', text, re.I)
-    return m.group(1).lower() if m else ""
+    return get_meta(text, "robots").lower()
+
+def is_indexable(text):
+    return "noindex" not in robots_for(text)
 
 indexable = set()
 noindex = set()
 
 for page in html_pages:
     text = page.read_text(encoding="utf-8")
-
-    if "<title>" not in text:
-        errors.append(f"{page.name}: missing title")
-
-    if page.name != "404.html" and 'meta name="description"' not in text:
-        errors.append(f"{page.name}: missing meta description")
-
-    if 'rel="manifest"' not in text:
-        errors.append(f"{page.name}: manifest link missing")
-
     robots = robots_for(text)
     (noindex if "noindex" in robots else indexable).add(page.name)
 
+    if "<title>" not in text:
+        errors.append(f"{page.name}: missing title")
+    if page.name != "404.html" and not get_meta(text, "description"):
+        errors.append(f"{page.name}: missing meta description")
+    if 'rel="manifest"' not in text:
+        errors.append(f"{page.name}: manifest link missing")
+
+    # Exactly one H1 is expected on every HTML page, including utility pages.
+    h1_count = len(re.findall(r"<h1\b", text, re.I))
+    if h1_count != 1:
+        errors.append(f"{page.name}: expected exactly one h1, found {h1_count}")
+
     # Internal HTML links.
     for href in re.findall(r'href="([^"]+)"', text):
-        if href.startswith(("mailto:", "#", "javascript:")):
+        if href.startswith(("mailto:", "#", "javascript:", "tel:")):
             continue
         if href.startswith(("http://", "https://")):
             continue
-        clean = href.split("#",1)[0].split("?",1)[0]
+        clean = href.split("#", 1)[0].split("?", 1)[0]
         if clean.endswith(".html") and not (ROOT / clean).exists():
             errors.append(f"{page.name}: broken internal link -> {href}")
 
-    # Production pages should not expose development placeholders.
-    if "noindex" not in robots:
+    # Production indexable pages must not expose development placeholders or ads.
+    if is_indexable(text):
         for forbidden in ["Coming Soon", "Library structure ready", "<time>Demo</time>"]:
             if forbidden in text:
                 errors.append(f"{page.name}: production placeholder -> {forbidden}")
+        if 'class="ad-wrap' in text or 'data-ad-slot=' in text:
+            errors.append(f"{page.name}: pre-approval ad placeholder still present")
 
-    if 'class="ad-wrap' in text or 'data-ad-slot=' in text:
-        errors.append(f"{page.name}: pre-approval ad placeholder still present")
+        # Indexable pages need canonical + social metadata.
+        if 'rel="canonical"' not in text:
+            errors.append(f"{page.name}: canonical missing")
+        for token in ['property="og:image"', 'content="image/png"', 'name="twitter:card"']:
+            if token not in text:
+                errors.append(f"{page.name}: social metadata missing -> {token}")
 
-    # target=_blank requires noopener.
+    # target=_blank requires noopener/noreferrer.
     for tag in re.findall(r'<a\b[^>]*target="_blank"[^>]*>', text, re.I):
         if 'rel="noopener' not in tag and 'rel="noreferrer' not in tag:
             errors.append(f"{page.name}: target=_blank without noopener")
+
+    # External content images should reserve layout space and have alt text.
+    for tag in re.findall(r'<img\b[^>]*>', text, re.I):
+        src_m = re.search(r'src="([^"]+)"', tag)
+        src = src_m.group(1) if src_m else ""
+        if src.startswith("http"):
+            if 'width="' not in tag or 'height="' not in tag:
+                errors.append(f"{page.name}: external image missing width/height -> {src}")
+            if 'alt="' not in tag:
+                errors.append(f"{page.name}: external image missing alt -> {src}")
+
+    # CSP should be least-privilege for framing.
+    if page.name in {"quiz.html", "quiz-player.html"}:
+        if "frame-src https://script.google.com https://script.googleusercontent.com;" not in text:
+            errors.append(f"{page.name}: Google Apps Script frame permission missing")
+    else:
+        if "frame-src 'none';" not in text:
+            errors.append(f"{page.name}: frame-src should be none")
+
+    # Unsplash preconnect should exist only where rendered assets use it.
+    has_preconnect = 'rel="preconnect" href="https://images.unsplash.com"' in text
+    if page.name in {"index.html", "blog.html"}:
+        if not has_preconnect:
+            errors.append(f"{page.name}: Unsplash preconnect missing")
+    elif has_preconnect:
+        errors.append(f"{page.name}: unnecessary Unsplash preconnect")
+
+# Specific content-integrity checks.
+index_text = (ROOT / "index.html").read_text(encoding="utf-8")
+for stale in ["Model Papers", "Latest Updates", "study-material.html"]:
+    if stale in index_text:
+        errors.append(f"index.html: stale/unavailable feature claim -> {stale}")
+
+app_js = (ROOT / "assets/js/app.js").read_text(encoding="utf-8")
+if "Model Paper" in app_js:
+    errors.append("assets/js/app.js: stale Model Paper search suggestion")
+
+terms = (ROOT / "terms.html").read_text(encoding="utf-8")
+if 'meta name="robots" content="index,follow,max-image-preview:large"' not in terms:
+    errors.append("terms.html: explicit robots meta missing")
+
+for article in [
+    "blog-board-study-plan.html", "blog-smart-revision.html", "blog-self-test.html",
+    "blog-answer-writing.html", "blog-math-practice.html", "blog-exam-week.html"
+]:
+    text = (ROOT / article).read_text(encoding="utf-8")
+    if 'class="breadcrumbs"' not in text:
+        errors.append(f"{article}: breadcrumbs missing")
+    if 'class="related-guides"' not in text:
+        errors.append(f"{article}: related guides missing")
+    if 'meta name="author"' not in text:
+        errors.append(f"{article}: author meta missing")
 
 # Sitemap consistency.
 sitemap_path = ROOT / "sitemap.xml"
@@ -59,16 +125,12 @@ if sitemap_path.exists():
     sitemap_files = set()
     for loc in re.findall(r"<loc>(.*?)</loc>", sitemap):
         path = urlparse(loc).path
-        if path.endswith("/"):
-            name = "index.html"
-        else:
-            name = path.split("/")[-1]
+        name = "index.html" if path.endswith("/") else path.split("/")[-1]
         sitemap_files.add(name)
 
     for name in noindex:
         if name in sitemap_files:
             errors.append(f"sitemap includes noindex page -> {name}")
-
     for name in indexable:
         if name == "404.html":
             continue
@@ -77,7 +139,7 @@ if sitemap_path.exists():
 else:
     errors.append("sitemap.xml missing")
 
-# Main navigation should not promote noindex/development pages.
+# Main navigation must not promote noindex/development pages.
 for page in html_pages:
     text = page.read_text(encoding="utf-8")
     nav = re.search(r'<nav id="main-nav".*?</nav>', text, re.S)
@@ -87,12 +149,23 @@ for page in html_pages:
         if href in noindex:
             errors.append(f"{page.name}: main nav links to noindex page -> {href}")
 
-for required in ["robots.txt", "site.webmanifest", "security.txt"]:
+# Required root/security/PWA assets.
+for required in [
+    "robots.txt", "site.webmanifest", "security.txt", ".well-known/security.txt",
+    "security.html", "assets/img/icon-180.png", "assets/img/icon-192.png", "assets/img/icon-512.png",
+    "assets/img/og-cover.png"
+]:
     if not (ROOT / required).exists():
         errors.append(f"{required} missing")
+
+# Manifest should reference raster icons.
+manifest = (ROOT / "site.webmanifest").read_text(encoding="utf-8")
+for icon in ["assets/img/icon-192.png", "assets/img/icon-512.png"]:
+    if icon not in manifest:
+        errors.append(f"manifest missing icon -> {icon}")
 
 if errors:
     print("\n".join(errors))
     raise SystemExit(1)
 
-print(f"Launch validation passed: {len(html_pages)} HTML pages, {len(indexable)} indexable, {len(noindex)} noindex.")
+print(f"Professional QA validation passed: {len(html_pages)} HTML pages, {len(indexable)} indexable, {len(noindex)} noindex.")
