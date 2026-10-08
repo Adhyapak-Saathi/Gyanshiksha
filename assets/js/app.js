@@ -61,7 +61,7 @@
     {title:"Board Exam", desc:"Std. 10 and Std. 12 board preparation", url:"board-exam.html", keys:"board exam gseb standard 10 12 std 10 std 12 બોર્ડ પરીક્ષા ધોરણ 10 12"},
     {title:"Online Quiz", desc:"Chapter-wise quiz and self-practice", url:"quiz.html", keys:"quiz mcq online test practice ક્વિઝ ટેસ્ટ પ્રશ્ન"},
     {title:"Learning Games", desc:"Math Sprint, Percentage and Algebra practice", url:"games.html", keys:"games learning math algebra percentage ગેમ્સ રમત ગણિત"},
-    {title:"Study Plan", desc:"Daily, weekly and board-focused planning", url:"study-plan.html", keys:"study plan timetable revision schedule અભ્યાસ આયોજન સમયપત્રક"},
+    {title:"Study Plan", desc:"Daily, weekly and board-focused planning", url:"blog-study-plan.html", keys:"study plan timetable revision schedule અભ્યાસ આયોજન સમયપત્રક"},
     {title:"Study Guidance Blog", desc:"Original educational study guides", url:"blog.html", keys:"blog study revision guidance અભ્યાસ માર્ગદર્શન"},
     {title:"90-Day Board Study Plan", desc:"Three-phase board exam preparation guide", url:"blog-board-study-plan.html", keys:"90 day board study plan exam બોર્ડ અભ્યાસ આયોજન"},
     {title:"Smart Revision", desc:"Recall, weak-topic tracking and revision cycles", url:"blog-smart-revision.html", keys:"smart revision recall weak topic પુનરાવર્તન"},
@@ -69,6 +69,8 @@
     {title:"Answer Writing", desc:"Exam answer structure and time management", url:"blog-answer-writing.html", keys:"answer writing exam presentation time management જવાબ લેખન"},
     {title:"Maths Practice", desc:"Error logs, mixed sets and timed practice", url:"blog-math-practice.html", keys:"math maths practice error log ગણિત પ્રેક્ટિસ"},
     {title:"Exam Week", desc:"7-day exam revision routine", url:"blog-exam-week.html", keys:"exam week 7 day revision પરીક્ષા અઠવાડિયું"},
+    {title:"News & Updates", desc:"Verified educational news and circulars", url:"updates.html", keys:"news updates circular gseb ssa udise education સમાચાર પરિપત્ર"},
+    {title:"Education Jobs", desc:"School education recruitment notices", url:"jobs.html", keys:"jobs recruitment શિક્ષક ભરતી નોકરી"},
     {title:"FAQ", desc:"Common questions about Gyan Shiksha and Quiz Saathi", url:"faq.html", keys:"faq help quiz privacy official પ્રશ્ન મદદ"}
   ];
 
