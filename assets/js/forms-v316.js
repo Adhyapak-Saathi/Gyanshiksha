@@ -11,7 +11,7 @@
   document.querySelectorAll("[data-forms-mode]").forEach(node => {
     node.textContent = configured
       ? "ફોર્મ મોકલ્યા પછી Email પહોંચ્યાની પુષ્ટિ અહીં દેખાશે."
-      : "હાલ Email App ખુલશે અને તેમાં Send દબાવવું પડશે. વેબસાઇટમાંથી સીધું મોકલવાનું backend સેટઅપ બાકી છે.";
+      : "તમારી Email App ખુલશે. મોકલવા માટે ત્યાં Send દબાવો.";
   });
 
   const setMessage = (form, message, state = "") => {

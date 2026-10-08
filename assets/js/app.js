@@ -4,6 +4,16 @@
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".main-nav");
 
+  // Keep the Material link consistent across existing page headers.
+  if (nav && !nav.querySelector('a[href="study-material.html"]')) {
+    const materialLink = document.createElement("a");
+    materialLink.href = "study-material.html";
+    materialLink.textContent = "Material";
+    const before = nav.querySelector('a[href="updates.html"]');
+    if (before) before.before(materialLink);
+    else nav.append(materialLink);
+  }
+
   function setNavState(open) {
     if (!nav || !navToggle) return;
     nav.classList.toggle("is-open", open);
@@ -58,6 +68,7 @@
   const searchResults = document.querySelector("[data-site-search-results]");
 
   const pages = [
+    {title:"Study Material", desc:"Notes, papers and downloadable learning resources", url:"study-material.html", keys:"material textbook notes papers pdf drive mega download અભ્યાસ સામગ્રી પાઠ્યપુસ્તક પ્રશ્નપત્ર ડાઉનલોડ"},
     {title:"Board Exam", desc:"Std. 10 and Std. 12 board preparation", url:"board-exam.html", keys:"board exam gseb standard 10 12 std 10 std 12 બોર્ડ પરીક્ષા ધોરણ 10 12"},
     {title:"Online Quiz", desc:"Chapter-wise quiz and self-practice", url:"quiz.html", keys:"quiz mcq online test practice ક્વિઝ ટેસ્ટ પ્રશ્ન"},
     {title:"Learning Games", desc:"Math Sprint, Percentage and Algebra practice", url:"games.html", keys:"games learning math algebra percentage ગેમ્સ રમત ગણિત"},
