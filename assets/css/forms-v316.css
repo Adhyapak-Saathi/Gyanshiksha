@@ -1,0 +1,25 @@
+/* Gyan Shiksha V3.16 — scoped form enhancements; no site-wide restyling */
+.v316-intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;margin-bottom:22px}
+.v316-intro-grid .contact-card,.v316-form-card{height:100%;text-align:left}
+.v316-intro-grid h2,.v316-form-card h2{margin:.25rem 0 .5rem;color:var(--navy)}
+.v316-intro-grid p,.v316-form-card>p{color:var(--muted);margin:.3rem 0 1.15rem}
+.v316-topics{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;padding-left:19px;margin:.5rem 0}
+.v316-topics li{margin:0;color:#28455f}
+.v316-two-forms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:20px}
+.v316-form-card{border-top:3px solid var(--blue)}
+.v316-form-card:nth-child(2){border-top-color:var(--orange)}
+.v316-form-card form{display:grid;gap:13px;margin-top:12px}
+.v316-form-card form>label:not(.v316-honeypot){display:grid;gap:5px;font-size:.89rem;font-weight:750;color:#263e5a}
+.v316-form-card input:not([type=checkbox]),.v316-form-card select,.v316-form-card textarea{width:100%;min-width:0;border:1px solid #cdd8e5;border-radius:9px;padding:11px 12px;background:#fff;color:var(--text);font:inherit;font-size:.95rem}
+.v316-form-card textarea{min-height:110px;resize:vertical}
+.v316-form-card input:focus-visible,.v316-form-card select:focus-visible,.v316-form-card textarea:focus-visible{outline:3px solid rgba(12,99,184,.23);border-color:var(--blue)}
+.v316-form-card .v316-consent{display:flex!important;align-items:start;gap:9px;line-height:1.5}
+.v316-consent input{margin-top:.3em;width:18px;height:18px;flex:0 0 auto;accent-color:var(--blue)}
+.v316-form-card .btn{width:100%;margin-top:3px;cursor:pointer;justify-content:center}
+.v316-form-card .btn:disabled{opacity:.6;cursor:wait}
+.v316-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.v316-status{min-height:22px;font-size:.88rem;margin:0!important;line-height:1.5}
+.v316-status[data-state=ok]{color:#106144}.v316-status[data-state=error]{color:#ad2424}
+.v316-privacy-note{color:var(--muted);font-size:.9rem;background:#f0f6fc;border:1px solid #dce8f3;border-radius:12px;padding:14px 16px;margin:20px 0 0}
+@media(max-width:810px){.v316-intro-grid,.v316-two-forms{grid-template-columns:minmax(0,1fr)}.v316-topics{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.v316-topics{grid-template-columns:1fr}}
