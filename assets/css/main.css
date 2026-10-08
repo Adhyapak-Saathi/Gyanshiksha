@@ -388,3 +388,42 @@ body.nav-open{overflow:hidden}
   .quiz-direct-live{align-items:stretch;flex-direction:column;padding:18px}
   .quiz-live-launch{width:100%;text-align:center}
 }
+
+/* V3.15 — News, Jobs, Contact, Blog and navigation */
+@media(min-width:1051px){.header-inner{gap:12px}.brand{min-width:226px}.main-nav a{padding:9px 8px;font-size:.86rem}}
+@media(max-width:600px){.utility-inner{gap:8px}.utility-inner>span{font-size:.68rem;white-space:nowrap}.utility-inner nav{gap:9px}.utility-inner nav a{font-size:.7rem}}
+@media(max-width:365px){.utility-inner nav a:last-child{display:none}}
+.compact-news-hero{padding:48px 0 32px}
+.feed-toolbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,240px);gap:12px;margin-bottom:14px}
+.feed-toolbar input,.feed-toolbar select,.contact-message-v315 input,.contact-message-v315 select,.contact-message-v315 textarea{width:100%;min-width:0;background:#fff;border:1px solid #c4d5e8;border-radius:12px;padding:12px 14px;color:var(--text);font:inherit}
+.feed-toolbar input:focus-visible,.feed-toolbar select:focus-visible,.contact-message-v315 input:focus-visible,.contact-message-v315 select:focus-visible,.contact-message-v315 textarea:focus-visible{outline:3px solid #74b9f5;outline-offset:1px}
+.feed-subtext{font-size:.85rem;color:var(--muted);margin:0 0 15px}
+.feed-list{display:grid;gap:14px;margin-bottom:22px}
+.feed-card{background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:17px;padding:19px 22px}
+.feed-card h2{font-size:1.18rem;line-height:1.45;margin:7px 0}.feed-card h2 a{text-decoration:none;color:var(--navy)}.feed-card h2 a:hover{text-decoration:underline}
+.feed-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:var(--muted);font-size:.78rem}
+.feed-card p{color:#40566e;line-height:1.65;margin:7px 0 12px}
+.feed-actions{display:flex;gap:16px;flex-wrap:wrap}.feed-actions a{color:var(--blue);font-weight:800;font-size:.86rem;text-underline-offset:3px}
+.feed-empty,.feed-error{padding:24px;background:#fff;border:1px dashed #b6cadf;border-radius:16px;text-align:center;color:var(--muted)}
+.news-source-note{margin:24px 0 0}.feed-tag{padding:4px 10px;border-radius:50px;background:#eaf3ff;color:var(--blue);font-weight:800}
+.home-updates-v315{padding:26px 0 45px}.home-news-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.home-news-panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.home-news-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+.home-news-head h3{margin:0;font-size:1.1rem}.home-news-head a{font-size:.82rem;color:var(--blue);font-weight:850;text-decoration:none}
+.home-news-link{display:block;text-decoration:none;border-top:1px solid #ecf1f6;padding:10px 0;font-weight:700;font-size:.91rem}
+.home-news-link:hover{color:var(--blue)}
+.story-visual-plan{background:linear-gradient(135deg,#0d647f,#229fc8)}
+.contact-layout-v315{display:grid;grid-template-columns:minmax(230px,.8fr) minmax(0,1.3fr);gap:20px;align-items:start}
+.contact-details-v315,.contact-message-v315{text-align:left}
+.contact-mail-v315{display:inline-block;margin:7px 0 22px;font-weight:900;color:var(--blue);overflow-wrap:anywhere}
+.contact-info-note{background:#f0f7ff;padding:16px;border-radius:14px;text-align:left}.contact-info-note p{margin:4px 0 0}
+.contact-message-v315 h2,.contact-details-v315 h2{margin:.2em 0}
+.contact-message-v315>p{color:var(--muted)}
+.contact-message-v315 form{display:grid;gap:15px}.contact-message-v315 label{display:grid;gap:6px;font-weight:800;font-size:.9rem;text-align:left}
+.contact-message-v315 textarea{resize:vertical;min-height:140px}
+.contact-fields-v315{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-message-v315 .btn{width:fit-content;cursor:pointer}
+.contact-honey-v315{position:absolute!important;left:-200vw!important;width:1px;height:1px;overflow:hidden}
+.contact-form-status{min-height:24px;font-size:.85rem;color:var(--muted);margin:0}
+@media(max-width:780px){.home-news-grid,.contact-layout-v315{grid-template-columns:1fr}}
+@media(max-width:550px){.feed-toolbar,.contact-fields-v315{grid-template-columns:1fr}.feed-card{padding:17px}.home-news-panel{padding:16px}.contact-message-v315 .btn{width:100%}}

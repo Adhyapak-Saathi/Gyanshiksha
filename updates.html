@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,follow">
-  <title>Updates | Gyan Shiksha</title>
-  <meta name="description" content="Latest education and board exam updates.">
+  <title>શૈક્ષણિક સમાચાર અને અપડેટ્સ | Gyan Shiksha</title>
+  <meta name="description" content="બોર્ડ પરીક્ષા, શૈક્ષણિક પરિપત્રો, SSA અને શિક્ષણ વિભાગની ચકાસેલી માહિતી.">
   <link rel="canonical" href="https://adhyapak-saathi.github.io/Gyanshiksha/updates.html">
   <meta property="og:locale" content="gu_IN">
   <meta property="og:type" content="website">
@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <script defer src="assets/js/app.js"></script>
+<script defer src="assets/js/feeds.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,33 +44,28 @@
     <div class="container utility-inner">
       <span>Learn • Practice • Progress</span>
       <nav aria-label="Utility navigation">
-        <a href="board-exam.html">Board Exam</a>
-        <a href="study-plan.html">Study Plan</a>
-        <a href="faq.html">FAQ</a>
+        <a href="updates.html">News</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>
-
   <div class="main-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Gyan Shiksha Home">
         <img src="assets/img/logo.svg" width="46" height="46" alt="">
-        <div>
-          <strong>Gyan Shiksha</strong>
-          <small>Students' Learning Portal</small>
-        </div>
+        <div><strong>Gyan Shiksha</strong><small>Students' Learning Portal</small></div>
       </a>
-
       <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
-
       <nav id="main-nav" class="main-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="quiz.html">Quiz</a>
         <a href="games.html">Games</a>
         <a href="board-exam.html">Board Exam</a>
-        <a href="study-plan.html">Study Plan</a>
+        <a href="updates.html">News</a>
+        <a href="jobs.html">Jobs</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
       </nav>
@@ -78,47 +74,23 @@
 </header>
 
   <main id="main">
-
-<section class="page-hero">
-  <div class="container narrow">
-    <span class="eyebrow">Education Updates</span>
-    <h1>Latest Updates</h1>
-    <p>આ sectionમાં Board, academic calendar, scholarship, admission અથવા school-related માહિતી official source verify કર્યા પછી જ publish થશે.</p>
+<section class="page-hero compact-news-hero"><div class="container narrow">
+  <span class="eyebrow">News &amp; Updates</span><h1>શૈક્ષણિક સમાચાર અને અપડેટ્સ</h1>
+  <p>બોર્ડ પરીક્ષા, શૈક્ષણિક પરિપત્રો, SSA અને શિક્ષણ ક્ષેત્રની ઉપયોગી માહિતી. અહીં માત્ર ચકાસેલી અને મંજૂર થયેલી નોંધો જ દેખાશે.</p>
+</div></section>
+<section class="section compact-top"><div class="container">
+  <div class="feed-toolbar" data-feed-controls data-feed-type="news">
+    <label class="sr-only" for="news-search">સમાચાર શોધો</label>
+    <input id="news-search" type="search" data-feed-search placeholder="શીર્ષક કે વિષય શોધો..." autocomplete="off">
+    <label class="sr-only" for="news-category">સમાચારનો વિભાગ</label>
+    <select id="news-category" data-feed-category><option value="all">બધા સમાચાર</option><option>Board Exam</option><option>SSA</option><option>SEB</option><option>Circular</option><option>Scholarship</option><option>Education News</option><option>UDISE+</option><option>Recruitment</option><option>Other</option></select>
   </div>
-</section>
-
-<section class="section compact-top">
-  <div class="container">
-    <div class="notice-box">
-      <strong>Publishing Rule:</strong> Copy-paste news નહીં. દરેક updateમાં સરળ summary, કોને લાગુ પડે છે, મહત્વની તારીખ અને official source link રહેશે.
-    </div>
-
-    <div class="update-empty-state">
-      <span class="update-icon">✓</span>
-      <h2>Verified updates માટે section તૈયાર છે</h2>
-      <p>હાલ કોઈ demo headlineને current news તરીકે publish કરવામાં આવી નથી. Source મળ્યા પછી જ update live કરવામાં આવશે.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section section-soft">
-  <div class="container">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">Update Format</span>
-        <h2>દરેક updateમાં શું રહેશે?</h2>
-      </div>
-    </div>
-    <div class="roadmap-grid">
-      <article class="roadmap-card"><span class="step-number">01</span><h3>What changed?</h3><p>Official noticeનો સરળ Gujarati summary.</p></article>
-      <article class="roadmap-card"><span class="step-number">02</span><h3>Who is affected?</h3><p>કયા standard/student/groupને લાગુ પડે છે.</p></article>
-      <article class="roadmap-card"><span class="step-number">03</span><h3>Important date</h3><p>Deadline અથવા exam date હોય તો clearly highlight.</p></article>
-      <article class="roadmap-card"><span class="step-number">04</span><h3>Official source</h3><p>Original board/department source માટે direct link.</p></article>
-    </div>
-  </div>
-</section>
-
-</main>
+  <p class="feed-subtext" data-feed-count aria-live="polite">મંજૂર સમાચાર લોડ થઈ રહ્યા છે...</p>
+  <div class="feed-list" data-feed-list data-feed-type="news" aria-live="polite"></div>
+  <p class="feed-empty" data-feed-empty hidden>હાલ અહીં કોઈ ચકાસેલા સમાચાર પ્રકાશિત થયેલા નથી. નવી સત્તાવાર માહિતી મળ્યા પછી ઉમેરવામાં આવશે.</p>
+  <p class="feed-error" data-feed-error hidden>અપડેટ્સ લોડ કરવામાં મુશ્કેલી આવી. થોડા સમય પછી ફરી પ્રયાસ કરશો.</p>
+  <div class="notice-box news-source-note"><strong>સાવચેતી:</strong> પરીક્ષા તારીખ અથવા ભરતી અંગે અંતિમ માહિતી માટે મૂળ સત્તાવાર જાહેરાત વાંચશો. UDISE+ સંબંધિત માહિતી સરકારી પરિપત્રની ચકાસણી પછી જ ઉમેરવામાં આવશે.</div>
+</div></section></main>
 
 <footer class="site-footer">
   <div class="container footer-grid">
@@ -127,28 +99,22 @@
         <img src="assets/img/logo.svg" width="42" height="42" alt="">
         <div><strong>Gyan Shiksha</strong><span>Student Learning Portal</span></div>
       </div>
-      <p>ગુજરાતી માધ્યમના વિદ્યાર્થીઓ માટે Quiz, Educational Games, Board Exam guidance અને original study guides.</p>
+      <p>વિદ્યાર્થીઓ માટે ક્વિઝ, શૈક્ષણિક રમતો, બોર્ડ પરીક્ષાનું માર્ગદર્શન, અભ્યાસ લેખો અને ચકાસેલી શૈક્ષણિક માહિતી.</p>
+      <a href="mailto:gyanshikshaa@gmail.com">gyanshikshaa@gmail.com</a>
     </div>
-
     <div>
       <h2>Quick Links</h2>
-      <a href="quiz.html">Quiz</a>
-      <a href="games.html">Games</a>
-      <a href="board-exam.html">Board Exam</a>
-      <a href="study-plan.html">Study Plan</a>
-      <a href="blog.html">Blog</a>
+      <a href="quiz.html">Quiz</a><a href="games.html">Games</a>
+      <a href="board-exam.html">Board Exam</a><a href="updates.html">News &amp; Updates</a>
+      <a href="jobs.html">Education Jobs</a><a href="blog.html">Blog</a>
     </div>
-
     <div>
       <h2>Important</h2>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms & Conditions</a>
-      <a href="disclaimer.html">Disclaimer</a>
-      <a href="editorial-policy.html">Editorial Policy</a>
-      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a>
+      <a href="disclaimer.html">Disclaimer</a><a href="editorial-policy.html">Editorial Policy</a>
+      <a href="contact.html">Contact Us</a>
     </div>
   </div>
-
   <div class="container footer-bottom">
     <span>© <span data-year></span> Gyan Shiksha. All rights reserved.</span>
     <span>Independent educational website</span>
