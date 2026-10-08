@@ -2,7 +2,7 @@
   "use strict";
   // After deploying the separate Gyan Shiksha Forms Apps Script, paste its /exec URL here.
   // Do not put any API keys or secret values in this public file.
-  const FORMS_ENDPOINT = "";
+  const FORMS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxjuU5l6BRIAKrG8TP9nMtr8haJ_gXzWQ9dtNDUO-K7upeu_pypcM7kmQh3lm9gcfjj/exec";
   const RECEIVER = "gyanshikshaa@gmail.com";
   const configured = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(FORMS_ENDPOINT);
   const forms = [...document.querySelectorAll("form[data-gyan-form]")];
