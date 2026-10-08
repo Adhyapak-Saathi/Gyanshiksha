@@ -7,3 +7,18 @@
 .material-empty,.material-error{text-align:center;padding:28px;background:#f0f6fd;border:1px solid #dbe7f5;border-radius:16px}.material-empty h3{margin:0 0 8px}.material-empty p{color:#526880}.material-error{color:#933b39;background:#fff2f0}.material-download-help{font-size:.84rem;color:#63768c;margin-top:18px}.material-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.material-help-card{background:white;border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.material-help-card>span{font-size:1.6rem}.material-help-card h2{font-size:1.15rem;margin:8px 0}.material-help-card p{color:#526880}.material-help-card a{color:#145eaa;font-weight:850;text-decoration:none}
 @media(max-width:1000px){.material-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.material-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.material-controls,.material-results,.material-cards{grid-template-columns:1fr}.material-hero-links{flex-direction:column}.material-hero-links .btn{text-align:center}.material-controls{padding:15px}.material-item{padding:18px}}
+
+/* V3.17 direct public folder links */
+.material-folder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.material-folder-card{display:flex;flex-direction:column;align-items:flex-start;min-width:0;background:#fff;border:1px solid var(--border);border-radius:19px;padding:26px;box-shadow:var(--shadow)}
+.material-folder-icon{display:grid;place-items:center;width:52px;height:52px;background:#e8f4ff;border-radius:15px;font-size:1.55rem;margin-bottom:13px}
+.material-folder-provider{color:#145eaa;font-weight:800;font-size:.79rem;letter-spacing:.03em}
+.material-folder-card h3{font-size:1.25rem;line-height:1.5;margin:5px 0 10px}
+.material-folder-card p{margin:0 0 20px;color:var(--muted);overflow-wrap:anywhere}
+.material-folder-button{display:inline-block;text-decoration:none;text-align:center;margin-top:auto;background:#145eaa;color:#fff;font-weight:850;border-radius:11px;padding:12px 18px}
+.material-folder-button:hover,.material-folder-button:focus-visible{background:#0c3f77;color:#fff}
+.material-folder-mega .material-folder-icon{background:#fff1f1}
+.material-folder-mega .material-folder-provider{color:#aa2f32}
+.material-folder-mega .material-folder-button{background:#b83838}
+.material-folder-mega .material-folder-button:hover,.material-folder-mega .material-folder-button:focus-visible{background:#8f2424}
+@media(max-width:620px){.material-folder-grid{grid-template-columns:1fr}.material-folder-card{padding:20px}.material-folder-button{width:100%}}
