@@ -162,6 +162,7 @@ jobs:
           if __name__ == '__main__':
               main()
           PY
+          sed -i 's/^[[:blank:]]*$//' ./*.html
           git diff --check
           git add -- '*.html' assets/js/analytics.js
           git diff --cached --check
