@@ -1,0 +1,178 @@
+name: One-time Gyan Shiksha GA4 CSP Fix
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website code
+        uses: actions/checkout@v4
+      - name: Apply and validate GA4 CSP changes
+        shell: bash
+        run: |
+          python3 - --apply <<'PY'
+          #!/usr/bin/env python3
+          """One-time GA4/CSP repair for Gyan Shiksha GitHub Pages.
+          
+          Run from the repository root: python3 fix_ga4_csp.py --check
+          Then:                         python3 fix_ga4_csp.py --apply
+          No third-party Python packages are needed.
+          """
+          import argparse
+          import re
+          from pathlib import Path
+          
+          MEASUREMENT_ID = 'G-858QBSF43P'
+          ANALYTICS_PATH = Path('assets/js/analytics.js')
+          ANALYTICS_JS = ''''use strict';
+          // Shared Google Analytics 4 initialization for all Gyan Shiksha pages.
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function gtag() { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-858QBSF43P');
+          '''
+          TAG_RE = re.compile(
+              r'<!-- Google tag \(gtag\.js\) -->\s*'
+              r'<script async src="https://www\.googletagmanager\.com/gtag/js\?id=G-858QBSF43P"></script>\s*'
+              r'<script>\s*[\s\S]*?</script>'
+          )
+          CSP_RE = re.compile(r'<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]+)"\s*>', re.I)
+          NEW_TAG = '''<!-- Google Analytics 4: strict-CSP-compatible external scripts -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-858QBSF43P"></script>
+          <script src="assets/js/analytics.js"></script>'''
+          DEFAULT_CSP = (
+              "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; "
+              "font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; "
+              "base-uri 'self'; upgrade-insecure-requests"
+          )
+          
+          
+          def augment_csp(policy):
+              """Allow only the Google origins needed by GA4 without enabling inline JS."""
+              directives = []
+              touched = set()
+              for directive in policy.split(';'):
+                  directive = directive.strip()
+                  if not directive:
+                      continue
+                  name, *sources = directive.split()
+                  if name == 'script-src':
+                      assert "'self'" in sources, 'Unexpected script-src directive'
+                      allowed = ['https://www.googletagmanager.com']
+                  elif name == 'img-src':
+                      allowed = ['https://www.googletagmanager.com', 'https://*.google-analytics.com']
+                  elif name == 'connect-src':
+                      assert "'self'" in sources, 'Unexpected connect-src directive'
+                      allowed = ['https://www.googletagmanager.com', 'https://*.google-analytics.com', 'https://*.google.com']
+                  else:
+                      allowed = []
+                  for host in allowed:
+                      if host not in sources:
+                          sources.append(host)
+                  if allowed:
+                      touched.add(name)
+                  directives.append(' '.join([name, *sources]))
+              assert touched == {'script-src', 'img-src', 'connect-src'}, 'Required CSP directives not found'
+              new_policy = '; '.join(directives)
+              assert "'unsafe-inline'" not in new_policy and "'unsafe-eval'" not in new_policy
+              return new_policy
+          
+          
+          def patch_html(html, filename):
+              if MEASUREMENT_ID not in html:
+                  return None
+              if 'assets/js/analytics.js' in html:
+                  # Previously fixed; still enforce the critical policy checks.
+                  csp = CSP_RE.search(html)
+                  if not csp or 'https://www.googletagmanager.com' not in csp.group(1):
+                      raise ValueError(f'{filename}: existing GA4 fix has incorrect CSP')
+                  return None
+              if len(TAG_RE.findall(html)) != 1:
+                  raise ValueError(f'{filename}: expected exactly one original Google tag')
+              without_tag = TAG_RE.sub('', html, count=1)
+              matches = list(CSP_RE.finditer(without_tag))
+              if len(matches) > 1:
+                  raise ValueError(f'{filename}: multiple CSP meta tags')
+              if not matches:
+                  # The legacy study-plan.html noindex redirect has no CSP; keep it secure too.
+                  if filename != 'study-plan.html':
+                      raise ValueError(f'{filename}: CSP meta tag missing')
+                  safe = augment_csp(DEFAULT_CSP)
+                  meta = f'<meta http-equiv="Content-Security-Policy" content="{safe}">\n{NEW_TAG}'
+                  updated, n = re.subn(r'(<meta charset="utf-8">)', lambda m: m.group(1) + '\n' + meta, without_tag, count=1)
+                  if n != 1:
+                      raise ValueError(f'{filename}: charset not found for CSP insertion')
+              else:
+                  def put_after_csp(match):
+                      policy = augment_csp(match.group(1))
+                      return match.group(0).replace(match.group(1), policy) + '\n' + NEW_TAG
+                  updated = CSP_RE.sub(put_after_csp, without_tag, count=1)
+              csp_start = updated.index('Content-Security-Policy')
+              ga_start = updated.index('googletagmanager.com/gtag/js')
+              if csp_start >= ga_start or updated.count('gtag/js?id=') != 1 or updated.count(MEASUREMENT_ID) != 1:
+                  raise ValueError(f'{filename}: script placement or duplicate measurement ID')
+              if re.search(r'<script>\s*window\.dataLayer', updated):
+                  raise ValueError(f'{filename}: old inline GA4 initializer remains')
+              return updated
+          
+          
+          def main():
+              parser = argparse.ArgumentParser(description=__doc__)
+              parser.add_argument('--apply', action='store_true', help='Write all validated fixes')
+              parser.add_argument('--check', action='store_true', help='Check planned changes without writing')
+              args = parser.parse_args()
+              if args.apply == args.check:
+                  parser.error('Choose exactly one of --check or --apply')
+              root = Path.cwd()
+              if not (root / 'index.html').exists() or not (root / 'assets/js').is_dir():
+                  parser.error('Run from the Gyan Shiksha GitHub repository root')
+              changes = {}
+              count_tracked = 0
+              for path in sorted(root.glob('*.html')):
+                  old = path.read_text(encoding='utf-8')
+                  if MEASUREMENT_ID in old:
+                      count_tracked += 1
+                  new = patch_html(old, path.name)
+                  if new is not None:
+                      changes[path] = new
+              if count_tracked < 20:
+                  raise RuntimeError(f'Only {count_tracked} tracked HTML pages found; refusing unexpected repository state')
+              script_file = root / ANALYTICS_PATH
+              if script_file.exists() and script_file.read_text(encoding='utf-8') != ANALYTICS_JS:
+                  raise RuntimeError(f'{ANALYTICS_PATH} already exists with different contents; refusing overwrite')
+              if not script_file.exists():
+                  changes[script_file] = ANALYTICS_JS
+              print(f'Checked {count_tracked} GA4-tagged HTML pages; {len(changes)} files need changes.')
+              for path in changes:
+                  print(' ', path.relative_to(root))
+              if args.apply:
+                  for path, content in changes.items():
+                      path.parent.mkdir(parents=True, exist_ok=True)
+                      path.write_text(content, encoding='utf-8')
+                  print('GA4/CSP patch applied. Commit the changed files to GitHub.')
+              else:
+                  print('DRY RUN: no files modified.')
+          
+          
+          if __name__ == '__main__':
+              main()
+          PY
+          git diff --check
+          git add -- '*.html' assets/js/analytics.js
+          git diff --cached --check
+      - name: Commit and publish repaired tracking
+        shell: bash
+        run: |
+          if git diff --cached --quiet; then
+            echo "Tracking files already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Fix Gyan Shiksha GA4 CSP tracking safely"
+          git push origin HEAD:main
